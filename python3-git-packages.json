@@ -1,0 +1,119 @@
+{
+    "name": "python3-git-packages",
+    "buildsystem": "simple",
+    "build-commands": [],
+    "modules": [
+        {
+            "name": "python3-bitcoin_safe_lib",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/andreasgriffin/bitcoin-safe-lib/archive/dc4242eaa98da833042f157ee9ed905d9781cdce.tar.gz",
+                    "sha256": "ba536eecf46062d714752cac022ca42d72028a06fe08ea79c48fbb95ee02daba"
+                }
+            ]
+        },
+        {
+            "name": "python3-hwi",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/bitcoin-core/HWI/archive/fa3698d5ff1376295f7332d08b1f7bc43f4676d1.tar.gz",
+                    "sha256": "88cb275c0165f96dc8d7c44d14114cff3e40e5a04683aa4f89d0602e4813b7ad"
+                }
+            ]
+        },
+        {
+            "name": "python3-jade_client",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/Blockstream/Jade/archive/fb2642397ed7afdda08f3d1380ac6ee21164e7e6.tar.gz",
+                    "sha256": "8c4881130f3b93711e272f9d98e1cb627904a38b3f73c2bfd51b57e12f2cd36b"
+                }
+            ]
+        },
+        {
+            "name": "python3-bitcoin_usb",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/a16ca3a99d806aabc39dfa3588675a3cf6aec672.tar.gz",
+                    "sha256": "3af61ecfe1b54f5e6a4a97795b724ba7b703c2fbe57963be66b588b2e3582b50"
+                }
+            ]
+        },
+        {
+            "name": "python3-pyzbar",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/andreasgriffin/pyzbar/archive/bad840c31dd0f92b616ca29642a408804d5cfa37.tar.gz",
+                    "sha256": "ba5146814c9ac6a6bf4ebf4292827bbbe42ba0787f307d0dc79c5a006480a6ab"
+                }
+            ]
+        },
+        {
+            "name": "python3-bitcoin_qr_tools",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/andreasgriffin/bitcoin-qr-tools/archive/0aecda03c09a62fa9c4c0323b1dd2f0bb302b43b.tar.gz",
+                    "sha256": "87ce8a4a0817f661202bcbda7b93d2b140ee8945af7568c93c72fb12d148aef3"
+                }
+            ]
+        },
+        {
+            "name": "python3-bitcoin_nostr_chat",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/andreasgriffin/bitcoin-nostr-chat/archive/d0973b38a0c24122af72d97617ab526d690ead49.tar.gz",
+                    "sha256": "e76700c212b8248f5d7c4356684b307480fec9b87229f763edb9a304f7f9017d"
+                }
+            ]
+        },
+        {
+            "name": "python3-btcpay_tools",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/andreasgriffin/btcpay-tools/archive/2b4af5a71d7f0b8832127d733e6607a11bfd39f5.tar.gz",
+                    "sha256": "6e5a9b4c3d48af8404c5865436d57261582618f92ee92c7dccc8c58229a09416"
+                }
+            ]
+        }
+    ]
+}
