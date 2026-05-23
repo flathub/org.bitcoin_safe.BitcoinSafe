@@ -674,6 +674,17 @@ def write_desktop_file(upstream_desktop_path: Path, output_path: Path) -> None:
     output_path.write_text(text, encoding="utf-8")
 
 
+def write_run_script(upstream_script_path: Path, output_path: Path) -> None:
+    text = read_text(upstream_script_path)
+    text = re.sub(
+        r'^export QT_QPA_PLATFORM=.*$',
+        'export QT_QPA_PLATFORM="${QT_QPA_PLATFORM:-wayland;xcb}"',
+        text,
+        flags=re.MULTILINE,
+    )
+    output_path.write_text(text, encoding="utf-8")
+
+
 def build_manifest(
     upstream_manifest: dict[str, Any],
     release: ReleaseInfo,
@@ -938,7 +949,7 @@ def copy_assets(context: SourceContext, output_dir: Path) -> None:
         else:
             shutil.copyfile(source, destination)
 
-    shutil.copyfile(
+    write_run_script(
         context.tree_root / "tools/build-linux/flatpak/run-bitcoin-safe.sh",
         output_dir / "run-bitcoin-safe.sh",
     )
