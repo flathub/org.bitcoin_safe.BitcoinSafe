@@ -9,15 +9,20 @@ import json
 import os
 import re
 import shutil
+import subprocess
+import sys
 import tarfile
 import tempfile
 import textwrap
+import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from http.client import RemoteDisconnected
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
 
 import tomllib
 import yaml
@@ -29,6 +34,17 @@ from packaging.version import Version
 DEFAULT_SOURCE_REPO_URL = "https://github.com/andreasgriffin/bitcoin-safe/"
 APP_ID = "org.bitcoin_safe.BitcoinSafe"
 APP_NAME = "Bitcoin Safe"
+BUNDLE_FILENAME = f"{APP_ID}.flatpak"
+FLATPAK_BRANCH = "master"
+FLATHUB_KDE_RUNTIME_VERSION = "6.9"
+FLATPAK_PYTHON_FULL_VERSION = "3.12.0"
+FLATPAK_PYTHON_VERSION = "3.12"
+FLATPAK_PYTHON_TAG = "cp312"
+PIP_INSTALL_ARGS = "--ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST}"
+PIP_OFFLINE_INSTALL_ARGS = (
+    '--ignore-installed --no-build-isolation --no-index --find-links="file://${PWD}" '
+    "--prefix=${FLATPAK_DEST}"
+)
 REPO_SCREENSHOT_BASE = (
     "https://raw.githubusercontent.com/flathub/org.bitcoin_safe.BitcoinSafe/master/screenshots"
 )
@@ -36,7 +52,7 @@ SCREENSHOT_SOURCES = [
     ("docs/tx-linux.png", "tx-linux.png"),
 ]
 ICON_SOURCES = [
-    ("tools/resources/icon.svg", f"{APP_ID}.svg"),
+    ("bitcoin_safe/gui/icons/logo-simple.svg", f"{APP_ID}.svg"),
     ("tools/resources/icon-128.png", f"{APP_ID}.png"),
 ]
 RUNTIME_ENV = {
@@ -47,12 +63,13 @@ RUNTIME_ENV = {
     "platform_release": "",
     "platform_system": "Linux",
     "platform_version": "",
-    "python_full_version": "3.12.0",
-    "python_version": "3.12",
+    "python_full_version": FLATPAK_PYTHON_FULL_VERSION,
+    "python_version": FLATPAK_PYTHON_VERSION,
     "sys_platform": "linux",
     "extra": "",
 }
 NAMESPACE = {"": "http://www.freedesktop.org/standards/appstream/1.0"}
+MANIFEST_FILENAME = f"{APP_ID}.yml"
 
 
 @dataclass
@@ -100,23 +117,49 @@ def json_request(url: str) -> Any:
             "User-Agent": "bitcoin-safe-flathub-generator",
         },
     )
-    with urllib.request.urlopen(request) as response:
+    with urlopen_with_retries(request) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
 def text_request(url: str) -> str:
     request = urllib.request.Request(url, headers={"User-Agent": "bitcoin-safe-flathub-generator"})
-    with urllib.request.urlopen(request) as response:
+    with urlopen_with_retries(request) as response:
         return response.read().decode("utf-8")
 
 
 def binary_request(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": "bitcoin-safe-flathub-generator"})
-    with urllib.request.urlopen(request) as response:
+    with urlopen_with_retries(request) as response:
         return response.read()
 
 
+def log_step(message: str) -> None:
+    print(f"[populate] {message}", file=sys.stderr)
+
+
+def urlopen_with_retries(request: urllib.request.Request, *, attempts: int = 4) -> Any:
+    delay = 1.0
+    last_error: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        try:
+            return urllib.request.urlopen(request)
+        except HTTPError:
+            raise
+        except (RemoteDisconnected, TimeoutError, URLError, OSError) as error:
+            last_error = error
+            if attempt == attempts:
+                break
+            time.sleep(delay)
+            delay *= 2
+    assert last_error is not None
+    raise last_error
+
+
 def fetch_release(repo_url: str, tag_name: str | None) -> ReleaseInfo:
+    if tag_name:
+        log_step(f"Fetching release metadata for tag '{tag_name}' from {repo_url}")
+    else:
+        log_step(f"Fetching latest GitHub release metadata from {repo_url}")
     slug = github_repo_slug(repo_url)
     if tag_name:
         payload = json_request(f"https://api.github.com/repos/{slug}/releases/tags/{tag_name}")
@@ -130,13 +173,14 @@ def fetch_release(repo_url: str, tag_name: str | None) -> ReleaseInfo:
         tag_name=payload["tag_name"],
         published_at=payload["published_at"],
         prerelease=bool(payload["prerelease"]),
-        tarball_url=payload["tarball_url"],
+        tarball_url=github_release_archive_url(repo_url, payload["tag_name"]),
         html_url=payload["html_url"],
         body=payload.get("body", ""),
     )
 
 
 def extract_release_tree(release: ReleaseInfo, workdir: Path) -> Path:
+    log_step(f"Downloading and extracting release tarball for {release.tag_name}")
     archive_path = workdir / f"{release.tag_name}.tar.gz"
     archive_path.write_bytes(binary_request(release.tarball_url))
     with tarfile.open(archive_path) as tar:
@@ -155,9 +199,16 @@ def build_source_context(
     release = fetch_release(repo_url, release_tag)
     if local_source_checkout:
         tree_root = Path(local_source_checkout).resolve()
+        log_step(f"Using local source checkout at {tree_root}")
     else:
         tempdir = Path(tempfile.mkdtemp(prefix="bitcoin-safe-flathub-"))
         tree_root = extract_release_tree(release, tempdir)
+        log_step(f"Using extracted release tree at {tree_root}")
+    log_step(
+        "Selected release: "
+        f"{release.tag_name} ({'prerelease' if release.prerelease else 'stable'}), "
+        f"published {release.date}"
+    )
     return SourceContext(repo_url=repo_url, release=release, tree_root=tree_root)
 
 
@@ -167,6 +218,10 @@ def read_text(path: Path) -> str:
 
 def read_bytes(path: Path) -> bytes:
     return path.read_bytes()
+
+
+def write_text(path: Path, content: str) -> None:
+    path.write_text(content, encoding="utf-8")
 
 
 def load_yaml(path: Path) -> Any:
@@ -199,12 +254,16 @@ def choose_artifact(file_entries: list[dict[str, str]]) -> dict[str, str]:
         if lower.endswith(".whl"):
             if "py3-none-any" in lower or "py2.py3-none-any" in lower:
                 return (0, lower)
-            if "abi3" in lower and "x86_64" in lower and "manylinux" in lower:
+            if "py3-none" in lower and "x86_64" in lower and "manylinux" in lower:
                 return (1, lower)
-            if "cp312" in lower and "x86_64" in lower and "manylinux" in lower:
+            if "py3-none" in lower and "x86_64" in lower and "linux" in lower:
                 return (2, lower)
-            if "cp312" in lower and "x86_64" in lower and "linux" in lower:
+            if "abi3" in lower and "x86_64" in lower and "manylinux" in lower:
                 return (3, lower)
+            if FLATPAK_PYTHON_TAG in lower and "x86_64" in lower and "manylinux" in lower:
+                return (4, lower)
+            if FLATPAK_PYTHON_TAG in lower and "x86_64" in lower and "linux" in lower:
+                return (5, lower)
             return (50, lower)
         if lower.endswith(".tar.gz") or lower.endswith(".zip") or lower.endswith(".tar.bz2"):
             return (100, lower)
@@ -214,6 +273,64 @@ def choose_artifact(file_entries: list[dict[str, str]]) -> dict[str, str]:
     if not compatible:
         raise RuntimeError("No files available to choose from")
     return compatible[0]
+
+
+def parse_svg_length(value: str) -> tuple[float, str]:
+    match = re.fullmatch(r"\s*([0-9]+(?:\.[0-9]+)?)\s*([A-Za-z%]*)\s*", value)
+    if not match:
+        raise RuntimeError(f"Unsupported SVG length value: {value!r}")
+    return float(match.group(1)), match.group(2)
+
+
+def format_svg_number(value: float) -> str:
+    return f"{value:.3f}".rstrip("0").rstrip(".")
+
+
+def normalize_svg_canvas_to_square(source_path: Path, output_path: Path) -> None:
+    content = read_text(source_path)
+    svg_tag_match = re.search(r"<svg\b[^>]*>", content)
+    if svg_tag_match is None:
+        raise RuntimeError(f"Expected SVG root element in {source_path}")
+
+    svg_tag = svg_tag_match.group(0)
+    width_match = re.search(r'\bwidth="([^"]+)"', svg_tag)
+    height_match = re.search(r'\bheight="([^"]+)"', svg_tag)
+    view_box_match = re.search(r'\bviewBox="([^"]+)"', svg_tag)
+    if width_match is None or height_match is None or view_box_match is None:
+        shutil.copyfile(source_path, output_path)
+        return
+
+    width_value, width_unit = parse_svg_length(width_match.group(1))
+    height_value, height_unit = parse_svg_length(height_match.group(1))
+    if width_unit != height_unit:
+        shutil.copyfile(source_path, output_path)
+        return
+
+    try:
+        min_x, min_y, box_width, box_height = [float(part) for part in view_box_match.group(1).split()]
+    except ValueError as error:
+        raise RuntimeError(
+            f"Unsupported SVG viewBox value in {source_path}: {view_box_match.group(1)!r}"
+        ) from error
+
+    if abs(box_width - box_height) < 1e-6 and abs(width_value - height_value) < 1e-6:
+        shutil.copyfile(source_path, output_path)
+        return
+
+    square_size = max(box_width, box_height)
+    if box_width < square_size:
+        min_x -= (square_size - box_width) / 2
+        box_width = square_size
+    if box_height < square_size:
+        min_y -= (square_size - box_height) / 2
+        box_height = square_size
+
+    square_view_box = " ".join(format_svg_number(part) for part in (min_x, min_y, box_width, box_height))
+    square_size_text = f"{format_svg_number(square_size)}{width_unit}"
+    updated_tag = re.sub(r'\bwidth="[^"]+"', f'width="{square_size_text}"', svg_tag, count=1)
+    updated_tag = re.sub(r'\bheight="[^"]+"', f'height="{square_size_text}"', updated_tag, count=1)
+    updated_tag = re.sub(r'\bviewBox="[^"]+"', f'viewBox="{square_view_box}"', updated_tag, count=1)
+    write_text(output_path, content.replace(svg_tag, updated_tag, 1))
 
 
 class PypiIndex:
@@ -298,7 +415,19 @@ def github_archive_url(git_url: str, resolved_reference: str) -> str:
     path = parsed.path.rstrip("/")
     if parsed.netloc != "github.com":
         raise RuntimeError(f"Only GitHub git sources are currently supported, got {git_url}")
-    return f"https://github.com{path}/archive/{resolved_reference}.tar.gz"
+    quoted_reference = urllib.parse.quote(resolved_reference, safe="")
+    return f"https://github.com{path}/archive/{quoted_reference}.tar.gz"
+
+
+def github_release_archive_url(repo_url: str, tag_name: str) -> str:
+    if repo_url.endswith(".git"):
+        repo_url = repo_url[:-4]
+    parsed = urllib.parse.urlparse(repo_url)
+    path = parsed.path.rstrip("/")
+    if parsed.netloc != "github.com":
+        raise RuntimeError(f"Only GitHub release sources are currently supported, got {repo_url}")
+    quoted_tag = urllib.parse.quote(tag_name, safe="")
+    return f"https://github.com{path}/archive/refs/tags/{quoted_tag}.tar.gz"
 
 
 def extract_archive_to_temp(url: str) -> Path:
@@ -482,7 +611,7 @@ def update_metainfo(upstream_metainfo_path: Path, output_path: Path, release: Re
 def write_readme(path: Path, release: ReleaseInfo) -> None:
     text = f"""# {APP_ID}
 
-Flathub-style Flatpak packaging for [Bitcoin Safe]({release.html_url}).
+Flathub-style Flatpak packaging for [Bitcoin Safe]({DEFAULT_SOURCE_REPO_URL}).
 
 ## Maintainer Workflow
 
@@ -492,7 +621,36 @@ Run:
 ./populate-flathub-manifest-repo.py
 ```
 
-By default the generator reads from `{DEFAULT_SOURCE_REPO_URL}` and uses the most recently published GitHub release, including prereleases. You can override that with:
+By default the script also runs local validation after regenerating files:
+
+- `flatpak-builder --show-manifest`
+- `flatpak-builder-lint manifest` when `org.flatpak.Builder` is installed
+- `flatpak-builder --user --install-deps-from=flathub --repo=repo build-dir {MANIFEST_FILENAME}`
+
+Use these flags to skip parts of that default flow:
+
+- `--skip-validate`
+- `--skip-lint`
+- `--skip-build`
+
+To run the local checks on Ubuntu, install the builder tools and lint helper first:
+
+```sh
+sudo apt update
+sudo apt install flatpak flatpak-builder
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.flatpak.Builder
+```
+
+By default the generator reads from `{DEFAULT_SOURCE_REPO_URL}` and uses the most recently published GitHub release, including prereleases.
+
+Source selection works like this:
+
+- if you pass `--local-source-checkout`, that local checkout is used for manifests, lockfile, and assets
+- otherwise, if you pass `--source-repo-url`, that upstream repo is used
+- otherwise, the generator falls back to `{DEFAULT_SOURCE_REPO_URL}`
+
+You can override the defaults with:
 
 - `--release-tag <tag>`
 - `--source-repo-url <url>`
@@ -505,13 +663,6 @@ The generator treats the upstream Flatpak manifest as the baseline and rewrites 
 - removes build-time network assumptions
 
 Flathub builds from the checked-in files in this repo, not from Docker.
-
-## Current Release
-
-- Source repo: `{release.source_repo_url}`
-- Selected tag: `{release.tag_name}`
-- Channel: `{release.branch}`
-- Published: `{release.date}`
 """
     path.write_text(text, encoding="utf-8")
 
@@ -528,20 +679,20 @@ def build_manifest(
     release: ReleaseInfo,
     app_source_sha256: str,
 ) -> dict[str, Any]:
+    finish_args = normalize_finish_args(upstream_manifest.get("finish-args", []))
     manifest = {
         "app-id": upstream_manifest["app-id"],
-        "branch": release.branch,
         "runtime": upstream_manifest["runtime"],
-        "runtime-version": upstream_manifest["runtime-version"],
+        "runtime-version": FLATHUB_KDE_RUNTIME_VERSION,
         "sdk": upstream_manifest["sdk"],
         "command": upstream_manifest["command"],
         "separate-locales": upstream_manifest.get("separate-locales", False),
-        "finish-args": copy.deepcopy(upstream_manifest.get("finish-args", [])),
+        "finish-args": finish_args,
         "modules": [],
     }
 
     for module in upstream_manifest["modules"][:-1]:
-        manifest["modules"].append(copy.deepcopy(module))
+        manifest["modules"].append(pin_git_tag_sources(copy.deepcopy(module)))
 
     manifest["modules"].extend(
         [
@@ -552,7 +703,7 @@ def build_manifest(
                 "name": "bitcoin-safe",
                 "buildsystem": "simple",
                 "build-commands": [
-                    "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} .",
+                    f"pip3 install {PIP_INSTALL_ARGS} --no-deps .",
                     f"install -Dm755 run-bitcoin-safe.sh /app/bin/run-bitcoin-safe.sh",
                     f"install -Dm644 {APP_ID}.svg /app/share/icons/hicolor/scalable/apps/{APP_ID}.svg",
                     f"install -Dm644 {APP_ID}.png /app/share/icons/hicolor/128x128/apps/{APP_ID}.png",
@@ -575,6 +726,71 @@ def build_manifest(
         ]
     )
     return manifest
+
+
+def normalize_finish_args(finish_args: list[str]) -> list[str]:
+    normalized: list[str] = []
+    saw_wayland = False
+    saw_x11 = False
+
+    for arg in finish_args:
+        if arg == "--filesystem=home":
+            continue
+        if arg == "--socket=wayland":
+            saw_wayland = True
+            normalized.append(arg)
+            continue
+        if arg == "--socket=x11":
+            saw_x11 = True
+            continue
+        normalized.append(arg)
+
+    if saw_wayland and saw_x11:
+        normalized.append("--socket=fallback-x11")
+    elif saw_x11:
+        normalized.append("--socket=x11")
+
+    return normalized
+
+
+def pin_git_tag_sources(module: dict[str, Any]) -> dict[str, Any]:
+    for source in module.get("sources", []):
+        if source.get("type") != "git":
+            continue
+        tag = source.get("tag")
+        url = source.get("url")
+        if not tag or not url or source.get("commit"):
+            continue
+        source["commit"] = resolve_git_tag_commit(url, tag)
+    return module
+
+
+def resolve_git_tag_commit(repo_url: str, tag: str) -> str:
+    log_step(f"Resolving git tag '{tag}' to an immutable commit for {repo_url}")
+    result = subprocess.run(
+        ["git", "ls-remote", "--tags", repo_url, tag, f"{tag}^{{}}"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"Unable to resolve git tag '{tag}' for {repo_url}: {result.stderr.strip()}"
+        )
+
+    commit_by_ref: dict[str, str] = {}
+    for line in result.stdout.splitlines():
+        if not line.strip():
+            continue
+        commit, ref = line.split("\t", 1)
+        ref_name = ref.removeprefix("refs/tags/")
+        commit_by_ref[ref_name] = commit
+
+    if f"{tag}^{{}}" in commit_by_ref:
+        return commit_by_ref[f"{tag}^{{}}"]
+    if tag in commit_by_ref:
+        return commit_by_ref[tag]
+    raise RuntimeError(f"Git tag '{tag}' was not found for {repo_url}")
 
 
 def collect_backend_specs(
@@ -629,12 +845,18 @@ def write_dependency_modules(
     main_packages: list[dict[str, Any]],
     all_packages: dict[str, dict[str, Any]],
 ) -> None:
+    log_step("Resolving Python dependencies from poetry.lock")
     pypi = PypiIndex()
     runtime_packages, git_packages = prepare_runtime_packages(main_packages, pypi)
     git_packages = topological_git_packages(git_packages)
+    log_step(
+        f"Preparing dependency manifests: {len(runtime_packages)} PyPI packages, "
+        f"{len(git_packages)} git packages"
+    )
 
     backend_specs = collect_backend_specs(context, runtime_packages, git_packages, pypi)
     backend_packages = resolve_backend_packages(all_packages, backend_specs, pypi)
+    log_step(f"Resolved {len(backend_packages)} build backend packages")
     render_requirements(output_dir / "requirements-build-backends.txt", backend_packages)
     render_requirements(output_dir / "requirements-runtime.txt", runtime_packages)
 
@@ -644,7 +866,7 @@ def write_dependency_modules(
             "name": "python3-build-backends",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} -r requirements-build-backends.txt"
+                f"pip3 install {PIP_OFFLINE_INSTALL_ARGS} -r requirements-build-backends.txt"
             ],
             "sources": [{"type": "file", "path": "requirements-build-backends.txt"}]
             + [package["source"] for package in backend_packages],
@@ -657,7 +879,7 @@ def write_dependency_modules(
             "name": "python3-runtime",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} -r requirements-runtime.txt"
+                f"pip3 install {PIP_OFFLINE_INSTALL_ARGS} -r requirements-runtime.txt"
             ],
             "sources": [{"type": "file", "path": "requirements-runtime.txt"}]
             + [
@@ -675,7 +897,7 @@ def write_dependency_modules(
                 "name": f"python3-{safe_module_name(package['name'])}",
                 "buildsystem": "simple",
                 "build-commands": [
-                    "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                    f"pip3 install {PIP_INSTALL_ARGS} --no-deps ."
                 ],
                 "sources": [
                     {
@@ -699,6 +921,7 @@ def write_dependency_modules(
 
 
 def copy_assets(context: SourceContext, output_dir: Path) -> None:
+    log_step("Copying icons, desktop file, metainfo, and screenshots")
     screenshots_dir = output_dir / "screenshots"
     if screenshots_dir.exists():
         shutil.rmtree(screenshots_dir)
@@ -708,7 +931,12 @@ def copy_assets(context: SourceContext, output_dir: Path) -> None:
         shutil.copyfile(context.tree_root / source_path, screenshots_dir / output_name)
 
     for source_path, output_name in ICON_SOURCES:
-        shutil.copyfile(context.tree_root / source_path, output_dir / output_name)
+        source = context.tree_root / source_path
+        destination = output_dir / output_name
+        if destination.suffix.lower() == ".svg":
+            normalize_svg_canvas_to_square(source, destination)
+        else:
+            shutil.copyfile(source, destination)
 
     shutil.copyfile(
         context.tree_root / "tools/build-linux/flatpak/run-bitcoin-safe.sh",
@@ -727,45 +955,246 @@ def copy_assets(context: SourceContext, output_dir: Path) -> None:
 
 
 def generate_repo(output_dir: Path, context: SourceContext) -> None:
+    log_step(f"Generating Flathub manifest repo in {output_dir}")
+    log_step("Loading upstream Flatpak manifest and Poetry lockfile")
     upstream_manifest = load_yaml(
         context.tree_root / "tools/build-linux/flatpak/org.bitcoin_safe.BitcoinSafe.yml"
     )
     lock_payload = load_toml(context.tree_root / "poetry.lock")
     main_packages, all_packages = evaluate_packages(lock_payload)
+    log_step(f"Computing pinned checksum for app release tarball {context.release.tag_name}")
     app_source_sha256 = download_sha256(context.release.tarball_url)
 
+    log_step("Writing flathub.json and README")
     write_flathub_json(output_dir / "flathub.json")
     write_readme(output_dir / "README.md", context.release)
     copy_assets(context, output_dir)
     write_dependency_modules(output_dir, context.release, context, main_packages, all_packages)
 
+    log_step(f"Writing main manifest {MANIFEST_FILENAME}")
     manifest = build_manifest(upstream_manifest, context.release, app_source_sha256)
-    (output_dir / "org.bitcoin_safe.BitcoinSafe.yml").write_text(
+    (output_dir / MANIFEST_FILENAME).write_text(
         yaml.safe_dump(manifest, sort_keys=False, width=1000),
         encoding="utf-8",
     )
+    log_step("Generation complete")
+
+
+def clean_transient_artifacts(output_dir: Path) -> None:
+    transient_paths = [
+        output_dir / "build-dir",
+        output_dir / "repo",
+        output_dir / BUNDLE_FILENAME,
+        output_dir / ".flatpak-builder",
+        output_dir / "__pycache__",
+    ]
+
+    removed_any = False
+    for path in transient_paths:
+        if not path.exists():
+            continue
+        removed_any = True
+        if path.is_dir():
+            shutil.rmtree(path)
+        else:
+            path.unlink()
+        log_step(f"Removed transient path {path}")
+
+    if not removed_any:
+        log_step("No previous transient build artifacts found to clean")
+
+
+def run_command(
+    args: list[str],
+    cwd: Path,
+    *,
+    allow_failure: bool = False,
+    description: str | None = None,
+    quiet_failure: bool = False,
+) -> subprocess.CompletedProcess[str]:
+    if description:
+        log_step(description)
+    result = subprocess.run(
+        args,
+        cwd=cwd,
+        text=True,
+        capture_output=True,
+    )
+    if result.stdout:
+        print(result.stdout, end="")
+    if result.stderr and not (quiet_failure and result.returncode != 0):
+        print(result.stderr, end="", file=sys.stderr)
+    if result.returncode != 0 and not allow_failure:
+        raise RuntimeError(f"Command failed ({result.returncode}): {' '.join(args)}")
+    return result
+
+
+def validate_repo(
+    output_dir: Path,
+    *,
+    skip_validate: bool,
+    skip_lint: bool,
+    skip_build: bool,
+) -> None:
+    if skip_validate:
+        log_step("Skipping validation because --skip-validate was requested")
+        return
+
+    log_step("Starting local validation")
+    manifest_path = output_dir / MANIFEST_FILENAME
+    run_command(
+        ["flatpak-builder", "--show-manifest", MANIFEST_FILENAME],
+        output_dir,
+        description="Checking manifest syntax with flatpak-builder --show-manifest",
+    )
+
+    if not skip_lint:
+        lint_check = run_command(
+            ["flatpak", "info", "org.flatpak.Builder"],
+            output_dir,
+            allow_failure=True,
+            quiet_failure=True,
+        )
+        if lint_check.returncode == 0:
+            lint_result = run_command(
+                [
+                    "flatpak",
+                    "run",
+                    "--command=flatpak-builder-lint",
+                    "org.flatpak.Builder",
+                    "manifest",
+                    str(manifest_path),
+                ],
+                output_dir,
+                description="Running flatpak-builder-lint manifest",
+                allow_failure=True,
+            )
+            if lint_result.returncode != 0:
+                lint_payload = parse_lint_output(lint_result.stdout)
+                if lint_payload.get("errors"):
+                    raise RuntimeError(f"flatpak-builder-lint reported errors: {lint_payload['errors']}")
+                log_step("flatpak-builder-lint reported only warnings/info; continuing")
+        else:
+            print(
+                "[populate] Skipping flatpak-builder-lint: org.flatpak.Builder is not installed. "
+                "On Ubuntu install prerequisites with: "
+                "'sudo apt install flatpak flatpak-builder' and then "
+                "'flatpak install flathub org.flatpak.Builder'.",
+                file=sys.stderr,
+            )
+
+    if skip_build:
+        log_step("Skipping local build because --skip-build was requested")
+        return
+
+    remote_check = run_command(
+        ["flatpak", "remotes", "--columns=name"],
+        output_dir,
+        allow_failure=True,
+    )
+    if remote_check.returncode != 0 or "flathub" not in remote_check.stdout.split():
+        print(
+            "[populate] Skipping local build: flatpak remote 'flathub' is not configured.",
+            file=sys.stderr,
+        )
+        return
+
+    build_dir = output_dir / "build-dir"
+    repo_dir = output_dir / "repo"
+    run_command(
+        [
+            "flatpak-builder",
+            "--user",
+            "--assumeyes",
+            "--force-clean",
+            "--install-deps-from=flathub",
+            f"--repo={repo_dir}",
+            str(build_dir),
+            MANIFEST_FILENAME,
+        ],
+        output_dir,
+        description="Building the Flatpak locally with flatpak-builder",
+    )
+    bundle_path = output_dir / BUNDLE_FILENAME
+    run_command(
+        [
+            "flatpak",
+            "build-bundle",
+            str(repo_dir),
+            str(bundle_path),
+            APP_ID,
+            FLATPAK_BRANCH,
+        ],
+        output_dir,
+        description="Building standalone Flatpak bundle for local testing",
+    )
+    log_step(f"Local Flatpak repo written to {repo_dir} (OSTree repo, not a .flatpak bundle)")
+    log_step(f"Standalone Flatpak bundle written to {bundle_path}")
+
+
+def parse_lint_output(output: str) -> dict[str, Any]:
+    try:
+        payload = json.loads(output)
+    except json.JSONDecodeError:
+        return {}
+    if isinstance(payload, dict):
+        return payload
+    return {}
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Populate the Bitcoin Safe Flathub manifest repo.")
-    parser.add_argument("--source-repo-url", default=DEFAULT_SOURCE_REPO_URL)
-    parser.add_argument("--local-source-checkout")
+    parser.add_argument(
+        "--source-repo-url",
+        help=(
+            "Upstream repository URL to read release metadata from. "
+            f"Defaults to {DEFAULT_SOURCE_REPO_URL} when no source override is provided."
+        ),
+    )
+    parser.add_argument(
+        "--local-source-checkout",
+        help=(
+            "Local bitcoin-safe checkout to use for manifests, lockfile, and assets. "
+            "When provided, this takes precedence over downloading the release tarball."
+        ),
+    )
     parser.add_argument("--release-tag")
     parser.add_argument("--use-latest-release", action="store_true")
     parser.add_argument("--refresh", action="store_true")
     parser.add_argument("--output-dir", default=".")
+    parser.add_argument("--skip-validate", action="store_true")
+    parser.add_argument("--skip-lint", action="store_true")
+    parser.add_argument("--skip-build", action="store_true")
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
     tag_name = args.release_tag
+    repo_url = args.source_repo_url or DEFAULT_SOURCE_REPO_URL
+    output_dir = Path(args.output_dir).resolve()
+    log_step(f"Source repository: {repo_url}")
+    if args.local_source_checkout:
+        log_step(f"Local source override: {Path(args.local_source_checkout).resolve()}")
+    log_step(f"Output directory: {output_dir}")
+    if tag_name:
+        log_step(f"Requested release tag: {tag_name}")
+    else:
+        log_step("Requested release tag: latest published release")
+    clean_transient_artifacts(output_dir)
     context = build_source_context(
-        repo_url=args.source_repo_url,
+        repo_url=repo_url,
         local_source_checkout=args.local_source_checkout,
         release_tag=tag_name,
     )
-    generate_repo(Path(args.output_dir).resolve(), context)
+    generate_repo(output_dir, context)
+    validate_repo(
+        output_dir,
+        skip_validate=args.skip_validate,
+        skip_lint=args.skip_lint,
+        skip_build=args.skip_build,
+    )
+    log_step("Populate completed successfully")
 
 
 if __name__ == "__main__":

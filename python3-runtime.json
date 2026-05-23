@@ -2,7 +2,7 @@
     "name": "python3-runtime",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --no-build-isolation --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} -r requirements-runtime.txt"
+        "pip3 install --ignore-installed --no-build-isolation --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} -r requirements-runtime.txt"
     ],
     "sources": [
         {
@@ -296,13 +296,13 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/08/93/859e3c0526ac29c7e1c71b5b60013032bc0a97f176363f9a6c12517d9c64/pyqt6_charts_qt6-6.11.1-py3-none-macosx_10_14_x86_64.whl",
-            "sha256": "d93240d994ea8570418e8738abf3e41e1e05260c25e3bdd6f450f3842e2a8dd8"
+            "url": "https://files.pythonhosted.org/packages/fc/04/4c180b4c00f053a03d5dab7de49bbc930e71a5db73d35007b417598c3a95/pyqt6_charts_qt6-6.11.1-py3-none-manylinux_2_34_x86_64.whl",
+            "sha256": "cae9dac7dd3c420aa47101bb8eba45226d9a9690b4f34573f4a1bbc3808ee7af"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/38/cb/ef930289bcd3b4be77a619d6b89ccdd0f53d753053a45f69ed590fd49777/pyqt6_qt6-6.11.1-py3-none-macosx_10_14_x86_64.whl",
-            "sha256": "694486f18b7ab9b1edcdb50e0c9f5cb726e096107da90ae7b0e810f18e2002b3"
+            "url": "https://files.pythonhosted.org/packages/e1/be/21d0df9bde717131f4245f8801676120d466afe198c4641c9e4982cf85fe/pyqt6_qt6-6.11.1-py3-none-manylinux_2_34_x86_64.whl",
+            "sha256": "254af349e0ef4b2fa581f86ee9d65eb797bb1d4f0c01ae5ceaa7b2446b458be9"
         },
         {
             "type": "file",

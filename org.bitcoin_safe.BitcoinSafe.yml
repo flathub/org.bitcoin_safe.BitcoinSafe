@@ -1,5 +1,4 @@
 app-id: org.bitcoin_safe.BitcoinSafe
-branch: beta
 runtime: org.kde.Platform
 runtime-version: '6.9'
 sdk: org.kde.Sdk
@@ -8,10 +7,9 @@ separate-locales: false
 finish-args:
 - --share=network
 - --share=ipc
-- --socket=x11
 - --socket=wayland
 - --device=all
-- --filesystem=home
+- --socket=fallback-x11
 modules:
 - name: libusb
   buildsystem: autotools
@@ -26,6 +24,7 @@ modules:
   - type: git
     url: https://github.com/libusb/libusb.git
     tag: v1.0.26
+    commit: 4239bc3a50014b8e6a5a2a59df1fff3b7469543b
 - name: hidapi
   buildsystem: cmake-ninja
   config-opts:
@@ -43,6 +42,7 @@ modules:
   - type: git
     url: https://github.com/libusb/hidapi.git
     tag: hidapi-0.15.0
+    commit: d6b2a974608dec3b76fb1e36c189f22b9cf3650c
 - name: zbar
   buildsystem: simple
   build-commands:
@@ -60,13 +60,14 @@ modules:
   - type: git
     url: https://github.com/mchehab/zbar.git
     tag: 0.23.93
+    commit: bb05ec54eec57f8397cb13fb9161372a281a1219
 - python3-build-backends.json
 - python3-runtime.json
 - python3-git-packages.json
 - name: bitcoin-safe
   buildsystem: simple
   build-commands:
-  - pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} .
+  - pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps .
   - install -Dm755 run-bitcoin-safe.sh /app/bin/run-bitcoin-safe.sh
   - install -Dm644 org.bitcoin_safe.BitcoinSafe.svg /app/share/icons/hicolor/scalable/apps/org.bitcoin_safe.BitcoinSafe.svg
   - install -Dm644 org.bitcoin_safe.BitcoinSafe.png /app/share/icons/hicolor/128x128/apps/org.bitcoin_safe.BitcoinSafe.png
@@ -74,8 +75,8 @@ modules:
   - install -Dm644 org.bitcoin_safe.BitcoinSafe.desktop /app/share/applications/org.bitcoin_safe.BitcoinSafe.desktop
   sources:
   - type: archive
-    url: https://api.github.com/repos/andreasgriffin/bitcoin-safe/tarball/2.0.0rc1
-    sha256: 7b3af90fc328a3cada7c95185301fff49a878e8b5baeaa95e4d2a5095d038553
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/refs/tags/2.0.0rc1.tar.gz
+    sha256: 91f28c831a10336267f40157dfdce85107e1636a78076b56ec067e292d33f935
   - type: file
     path: run-bitcoin-safe.sh
   - type: file

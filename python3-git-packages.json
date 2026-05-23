@@ -7,7 +7,7 @@
             "name": "python3-bitcoin_safe_lib",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                "pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps ."
             ],
             "sources": [
                 {
@@ -21,7 +21,7 @@
             "name": "python3-hwi",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                "pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps ."
             ],
             "sources": [
                 {
@@ -35,7 +35,7 @@
             "name": "python3-jade_client",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                "pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps ."
             ],
             "sources": [
                 {
@@ -49,7 +49,7 @@
             "name": "python3-bitcoin_usb",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                "pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps ."
             ],
             "sources": [
                 {
@@ -63,7 +63,7 @@
             "name": "python3-pyzbar",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                "pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps ."
             ],
             "sources": [
                 {
@@ -77,7 +77,7 @@
             "name": "python3-bitcoin_qr_tools",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                "pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps ."
             ],
             "sources": [
                 {
@@ -91,7 +91,7 @@
             "name": "python3-bitcoin_nostr_chat",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                "pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps ."
             ],
             "sources": [
                 {
@@ -105,7 +105,7 @@
             "name": "python3-btcpay_tools",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --no-build-isolation --no-deps --prefix=${FLATPAK_DEST} ."
+                "pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps ."
             ],
             "sources": [
                 {

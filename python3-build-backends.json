@@ -2,7 +2,7 @@
     "name": "python3-build-backends",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --no-build-isolation --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} -r requirements-build-backends.txt"
+        "pip3 install --ignore-installed --no-build-isolation --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} -r requirements-build-backends.txt"
     ],
     "sources": [
         {
