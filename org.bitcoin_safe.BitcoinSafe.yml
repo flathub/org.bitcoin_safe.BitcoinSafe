@@ -75,8 +75,8 @@ modules:
   - install -Dm644 org.bitcoin_safe.BitcoinSafe.desktop /app/share/applications/org.bitcoin_safe.BitcoinSafe.desktop
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/refs/tags/2.0.0rc1.tar.gz
-    sha256: 91f28c831a10336267f40157dfdce85107e1636a78076b56ec067e292d33f935
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/refs/tags/2.0.0.tar.gz
+    sha256: 3ab8ba7d1a0999b9a687ed9f094d54e9a86f19398b88da5869537cf31d41d599
   - type: file
     path: run-bitcoin-safe.sh
   - type: file

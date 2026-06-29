@@ -1,3 +1,5 @@
 .flatpak-builder/
 build-dir/
 repo/
+
+org.bitcoin_safe.BitcoinSafe.flatpak

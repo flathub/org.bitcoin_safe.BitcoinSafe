@@ -12,8 +12,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/andreasgriffin/bitcoin-safe-lib/archive/dc4242eaa98da833042f157ee9ed905d9781cdce.tar.gz",
-                    "sha256": "ba536eecf46062d714752cac022ca42d72028a06fe08ea79c48fbb95ee02daba"
+                    "url": "https://github.com/andreasgriffin/bitcoin-safe-lib/archive/79a30ea5b53b02ca682fc276898466f344a3fc85.tar.gz",
+                    "sha256": "fc9dc5894ac04a309d1667a09f74b36596b2ce959e7f73ffed2703176ff3984c"
                 }
             ]
         },
@@ -54,8 +54,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/a16ca3a99d806aabc39dfa3588675a3cf6aec672.tar.gz",
-                    "sha256": "3af61ecfe1b54f5e6a4a97795b724ba7b703c2fbe57963be66b588b2e3582b50"
+                    "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/197c6b7ec9f2810c2a5cf986cc5d3ec4be98982e.tar.gz",
+                    "sha256": "ee665316d48298f4bb197308861c38916cbc67b60e519c3f9531b6f8f4007198"
                 }
             ]
         },
@@ -82,8 +82,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/andreasgriffin/bitcoin-qr-tools/archive/0aecda03c09a62fa9c4c0323b1dd2f0bb302b43b.tar.gz",
-                    "sha256": "87ce8a4a0817f661202bcbda7b93d2b140ee8945af7568c93c72fb12d148aef3"
+                    "url": "https://github.com/andreasgriffin/bitcoin-qr-tools/archive/b7c1c7d1cabd13a30c4457f4ddb51e2645fda413.tar.gz",
+                    "sha256": "e1167bd2bef6958dfe8648673bf61132b1c7e1276c623dcaec2b5f64bda0363e"
                 }
             ]
         },
@@ -96,8 +96,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/andreasgriffin/bitcoin-nostr-chat/archive/d0973b38a0c24122af72d97617ab526d690ead49.tar.gz",
-                    "sha256": "e76700c212b8248f5d7c4356684b307480fec9b87229f763edb9a304f7f9017d"
+                    "url": "https://github.com/andreasgriffin/bitcoin-nostr-chat/archive/1a9c5b4e436e1a7f6fef7ae0fcfc5293633b9281.tar.gz",
+                    "sha256": "8db9e6e092ca6fb9c2e8c55ea2cadb007c99701c5efa60b20a5c251fb4c5db28"
                 }
             ]
         },
