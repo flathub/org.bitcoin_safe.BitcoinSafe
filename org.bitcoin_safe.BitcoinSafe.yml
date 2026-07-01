@@ -89,8 +89,4 @@ modules:
   - type: file
     path: build-flatpak-app.sh
   - type: file
-    path: normalize-svg-icon.py
-  - type: file
-    path: org.bitcoin_safe.BitcoinSafe.metainfo.xml
-  - type: file
     path: run-bitcoin-safe.sh
