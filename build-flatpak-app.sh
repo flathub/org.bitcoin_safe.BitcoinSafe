@@ -53,15 +53,6 @@ python3 -m venv "${TOOL_VENV_ROOT}"
 
 # Build frontend and backend tooling only need to exist in the temporary tool
 # venv; runtime packages are installed directly into /app below.
-if [ -s "${BUILD_BACKENDS_DIR}/requirements-build-bootstrap.txt" ]; then
-    "${TOOL_VENV_ROOT}/bin/python" -m pip install \
-        --no-build-isolation \
-        --no-index \
-        --find-links "${BUILD_BACKENDS_DIR}" \
-        --no-warn-script-location \
-        --cache-dir "${PIP_CACHE_DIR}" \
-        -r "${BUILD_BACKENDS_DIR}/requirements-build-bootstrap.txt"
-fi
 "${TOOL_VENV_ROOT}/bin/python" -m pip install \
     --no-build-isolation \
     --no-dependencies \

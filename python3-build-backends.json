@@ -8,10 +8,6 @@
     "sources": [
         {
             "type": "file",
-            "path": "requirements-build-bootstrap.txt"
-        },
-        {
-            "type": "file",
             "path": "requirements-build-backends.txt"
         },
         {
