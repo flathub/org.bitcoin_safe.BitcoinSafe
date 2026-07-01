@@ -84,8 +84,8 @@ modules:
   - bash build-flatpak-app.sh
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/cc93bdc69f571be6f89f859cfd325f2b3b6812c2.tar.gz
-    sha256: 847a851d70c15758025608899ff32eeaa33e0117f9d26725a2b496f1ecb7a4ad
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/3f9b3796e595fb9f2d661a684b00772cc8f89b2e.tar.gz
+    sha256: 5d250d2de3410486d4a72f63154fe1c08dde96d9013efbf4586e396f1284bff4
   - type: file
     path: build-flatpak-app.sh
   - type: file
