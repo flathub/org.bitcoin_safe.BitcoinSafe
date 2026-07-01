@@ -40,13 +40,12 @@ noiseprotocol==0.3.1
 nostr-sdk==0.44.2
 numpy==2.2.1
 opencv-python-headless==4.13.0.92
-pgpy==0.6.0
-pillow==12.2.0
+packaging==26.2
+pillow==12.3.0
 platformdirs==4.10.0
 propcache==0.5.2
 protobuf==4.25.9
 pyaes==1.6.1
-pyasn1==0.6.3
 pycparser==3.0
 pycryptodome==3.23.0
 pydantic==2.13.4
@@ -58,6 +57,7 @@ pyqt6-charts==6.11.0
 pyqt6-charts-qt6==6.11.1
 pyqt6-qt6==6.11.1
 pyqt6-sip==13.11.1
+pysequoia==0.1.34
 pyserial==3.5
 pysocks==1.7.1
 python-gnupg==0.5.6

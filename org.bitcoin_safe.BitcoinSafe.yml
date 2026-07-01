@@ -1,6 +1,6 @@
 app-id: org.bitcoin_safe.BitcoinSafe
 runtime: org.kde.Platform
-runtime-version: '6.9'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 command: run-bitcoin-safe.sh
 separate-locales: false
@@ -44,12 +44,22 @@ modules:
     tag: hidapi-0.15.0
     commit: d6b2a974608dec3b76fb1e36c189f22b9cf3650c
 - name: zbar
-  buildsystem: simple
-  build-commands:
-  - autoreconf -vfi
-  - ./configure --prefix=/app --enable-pthread=no --enable-doc=no --with-python=no --with-gtk=no --with-qt=no --with-java=no --with-imagemagick=no --with-dbus=no --with-x=no --enable-video=no --with-jpeg=no --enable-codes=qrcode --disable-static --enable-shared
-  - make -j${FLATPAK_BUILDER_N_JOBS}
-  - make install
+  buildsystem: autotools
+  config-opts:
+  - --enable-pthread=no
+  - --enable-doc=no
+  - --with-python=no
+  - --with-gtk=no
+  - --with-qt=no
+  - --with-java=no
+  - --with-imagemagick=no
+  - --with-dbus=no
+  - --with-x=no
+  - --enable-video=no
+  - --with-jpeg=no
+  - --enable-codes=qrcode
+  - --disable-static
+  - --enable-shared
   cleanup:
   - /bin
   - /include
@@ -61,29 +71,26 @@ modules:
     url: https://github.com/mchehab/zbar.git
     tag: 0.23.93
     commit: bb05ec54eec57f8397cb13fb9161372a281a1219
+  - type: script
+    dest-filename: autogen.sh
+    commands:
+    - exec autoreconf -vfi
 - python3-build-backends.json
 - python3-runtime.json
 - python3-git-packages.json
 - name: bitcoin-safe
   buildsystem: simple
   build-commands:
-  - pip3 install --ignore-installed --no-build-isolation --prefix=${FLATPAK_DEST} --no-deps .
-  - install -Dm755 run-bitcoin-safe.sh /app/bin/run-bitcoin-safe.sh
-  - install -Dm644 org.bitcoin_safe.BitcoinSafe.svg /app/share/icons/hicolor/scalable/apps/org.bitcoin_safe.BitcoinSafe.svg
-  - install -Dm644 org.bitcoin_safe.BitcoinSafe.png /app/share/icons/hicolor/128x128/apps/org.bitcoin_safe.BitcoinSafe.png
-  - install -Dm644 org.bitcoin_safe.BitcoinSafe.metainfo.xml /app/share/metainfo/org.bitcoin_safe.BitcoinSafe.metainfo.xml
-  - install -Dm644 org.bitcoin_safe.BitcoinSafe.desktop /app/share/applications/org.bitcoin_safe.BitcoinSafe.desktop
+  - bash build-flatpak-app.sh
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/refs/tags/2.0.0.tar.gz
-    sha256: 3ab8ba7d1a0999b9a687ed9f094d54e9a86f19398b88da5869537cf31d41d599
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/cc93bdc69f571be6f89f859cfd325f2b3b6812c2.tar.gz
+    sha256: 847a851d70c15758025608899ff32eeaa33e0117f9d26725a2b496f1ecb7a4ad
   - type: file
-    path: run-bitcoin-safe.sh
+    path: build-flatpak-app.sh
   - type: file
-    path: org.bitcoin_safe.BitcoinSafe.svg
-  - type: file
-    path: org.bitcoin_safe.BitcoinSafe.png
-  - type: file
-    path: org.bitcoin_safe.BitcoinSafe.desktop
+    path: normalize-svg-icon.py
   - type: file
     path: org.bitcoin_safe.BitcoinSafe.metainfo.xml
+  - type: file
+    path: run-bitcoin-safe.sh

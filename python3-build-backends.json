@@ -2,9 +2,14 @@
     "name": "python3-build-backends",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --ignore-installed --no-build-isolation --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} -r requirements-build-backends.txt"
+        "install -d /app/share/bitcoin-safe/vendor/build-backends",
+        "cp -t /app/share/bitcoin-safe/vendor/build-backends ./*"
     ],
     "sources": [
+        {
+            "type": "file",
+            "path": "requirements-build-bootstrap.txt"
+        },
         {
             "type": "file",
             "path": "requirements-build-backends.txt"
@@ -31,8 +36,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6a/fd/6adabd4f6d5e686f97dd02ce7fce3fe4cf672cbac36b8f67ff4040e8ad8b/msgpack-1.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
-            "sha256": "020e881a764b20d8d7ca1a54fc01b8175519d108e3c3f194fddc200bda95951a"
+            "url": "https://files.pythonhosted.org/packages/79/d3/36a46a8ed992b781acbc05928bd5bee3c810cb0c3563bf81a7b0c04a1a76/msgpack-1.2.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+            "sha256": "787c9bebb5833e8f6fc8abca3c0597683d8d87f56a8842b6b89c75a5f3176e2d"
         },
         {
             "type": "file",
@@ -71,8 +76,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/79/72/97a9728c711c7c1b06e107d3f0623880fb4ef90e147ed13c551a1730e7cc/rapidfuzz-3.14.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
-            "sha256": "48bee0b91bebfaec41e1081e351000659ab7570cc4598d617aa04d5bf827f9e6"
+            "url": "https://files.pythonhosted.org/packages/90/79/2fc252a63bc91d3c3b234d0a3a6ad4ebc460037a23cdcdaf9285f986e6c9/rapidfuzz-3.14.5-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+            "sha256": "17a34330cd2a538c1ce5d400b61ba358c5b72c654b928ff87b362e88f8b864c7"
         },
         {
             "type": "file",
@@ -86,8 +91,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/24/15/61bd455d33979584f19d3a6e0b49b49e0d891bc680fc8cc7b028aea7360d/dulwich-1.2.6-py3-none-any.whl",
-            "sha256": "8d8175dbe4feaf62bcafc8708448bfe223b4dfc71609be25c0cf2b0962abc36c"
+            "url": "https://files.pythonhosted.org/packages/6d/eb/9e422f2ab321887dc36a51b4462f31e4af83a9aab3aa1d135fa261cf866c/dulwich-1.2.7-py3-none-any.whl",
+            "sha256": "b2134098974f2721f0ff36408ba810240ffd04aa9ab8b6ff0407ec6d5119cbf2"
         },
         {
             "type": "file",
@@ -141,8 +146,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/78/2d/7fa73dfa841b5ac06c7b8855cfc18622132e365f5b81d02230333ff26e9e/cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "3e17ed538242334bf70832644a32a7aae3d83b57567f9fd60a26257e992b79ba"
+            "url": "https://files.pythonhosted.org/packages/98/df/0a1755e750013a2081e863e7cd37e0cdd02664372c754e5560099eb7aa44/cffi-2.0.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "c8d3b5532fc71b7a77c09192b4a5a200ea992702734a2e9279a37f2478236f26"
         },
         {
             "type": "file",
@@ -161,8 +166,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6b/b2/d17b2722c636d64b4e77ddc68d8d0625719d39f94021be8719a218af4c0a/backports_zstd-1.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
-            "sha256": "1a99710fbb225d459d66def4dc2bb2cd4a9a0bdc8b799fc0621cfdd863be9c93"
+            "url": "https://files.pythonhosted.org/packages/38/26/ce90e9eed6f25aaa4a4fa305a2aaf2d2ad81fd69de8eb248ddd91c80d1e0/backports_zstd-1.6.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+            "sha256": "e39258a09b1c7ca70b5e94a5c5ccfe4700b4250b8077cfeab31d0f79565d4c9b"
         },
         {
             "type": "file",

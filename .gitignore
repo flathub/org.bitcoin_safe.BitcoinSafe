@@ -3,3 +3,4 @@ build-dir/
 repo/
 
 org.bitcoin_safe.BitcoinSafe.flatpak
+__pycache__/*

@@ -13,7 +13,7 @@ crashtest==0.4.1
 rapidfuzz==3.14.5
 cleo==2.1.0
 typing-extensions==4.15.0
-dulwich==1.2.6
+dulwich==1.2.7
 fastjsonschema==2.21.2
 platformdirs==4.10.0
 findpython==0.8.0
