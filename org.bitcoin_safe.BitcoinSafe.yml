@@ -12,25 +12,13 @@ build-options:
 cleanup-commands:
 - /app/cleanup-BaseApp.sh
 finish-args:
+- --require-version=1.16.0
 - --share=network
 - --share=ipc
 - --socket=wayland
 - --socket=fallback-x11
-- --device=all
+- --device=usb
 modules:
-- name: libusb
-  buildsystem: autotools
-  config-opts:
-  - --disable-static
-  cleanup:
-  - /include
-  - /lib/pkgconfig
-  - /share/doc
-  - /share/man
-  sources:
-  - type: git
-    url: https://github.com/libusb/libusb.git
-    commit: 4239bc3a50014b8e6a5a2a59df1fff3b7469543b
 - name: hidapi
   buildsystem: cmake-ninja
   config-opts:
@@ -47,6 +35,7 @@ modules:
   sources:
   - type: git
     url: https://github.com/libusb/hidapi.git
+    tag: hidapi-0.15.0
     commit: d6b2a974608dec3b76fb1e36c189f22b9cf3650c
 - name: zbar
   buildsystem: autotools
@@ -74,6 +63,7 @@ modules:
   sources:
   - type: git
     url: https://github.com/mchehab/zbar.git
+    tag: 0.23.93
     commit: bb05ec54eec57f8397cb13fb9161372a281a1219
   - type: script
     dest-filename: autogen.sh
