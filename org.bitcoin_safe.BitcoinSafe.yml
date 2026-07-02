@@ -12,12 +12,11 @@ build-options:
 cleanup-commands:
 - /app/cleanup-BaseApp.sh
 finish-args:
-- --require-version=1.16.0
 - --share=network
 - --share=ipc
 - --socket=wayland
 - --socket=fallback-x11
-- --device=usb
+- --device=all
 modules:
 - name: hidapi
   buildsystem: cmake-ninja
