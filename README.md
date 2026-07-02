@@ -37,7 +37,13 @@ Run:
 ./populate-flathub-manifest-repo.py
 ```
 
-By default the script also runs local validation after regenerating files:
+By default the script writes the generated manifest repo to:
+
+```sh
+tools/build-linux/flathub-flatpak/build/generated-repo
+```
+
+and then runs local validation:
 
 - `flatpak-builder --show-manifest`
 - `flatpak-builder-lint manifest` when `org.flatpak.Builder` is installed
@@ -59,7 +65,7 @@ To run the local checks on Ubuntu, install the builder tools and lint helper fir
 sudo apt update
 sudo apt install flatpak flatpak-builder
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.flatpak.Builder
+flatpak install flathub org.kde.Platform//6.10 org.kde.Sdk//6.10 com.riverbankcomputing.PyQt.BaseApp//6.10 org.flatpak.Builder
 ```
 
 By default the generator reads from `https://github.com/andreasgriffin/bitcoin-safe/` and uses the most recently published GitHub release, including prereleases.
@@ -75,11 +81,15 @@ You can override the defaults with:
 - `--release-tag <tag>`
 - `--source-repo-url <url>`
 - `--local-source-checkout <path>`
+- `--app-source-mode local-dir` to make the generated manifest point at that local checkout instead of a release archive
+- `--refresh` to explicitly update the checked-in generated SVG and metainfo files first
 
-The generator treats the upstream Flatpak manifest as the baseline and rewrites only the Flathub-incompatible parts:
+The generator is the only Flatpak manifest source of truth:
 
-- replaces local staged sources with pinned release archives
+- it defines the Flatpak manifest in Python instead of reading a checked-in YAML manifest
+- by default replaces local staged sources with pinned release archives
 - replaces build-time dependency resolution with generated, pinned dependency manifests
-- removes build-time network assumptions
+- relies on `com.riverbankcomputing.PyQt.BaseApp//6.10` for the core PyQt runtime instead of vendoring PyQt into the app
+- keeps normal runs side-effect-free by checking tracked generated assets instead of rewriting them
 
 Flathub builds from the checked-in files in this repo, not from Docker.

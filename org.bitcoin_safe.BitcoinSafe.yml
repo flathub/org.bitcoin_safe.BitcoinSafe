@@ -2,14 +2,21 @@ app-id: org.bitcoin_safe.BitcoinSafe
 runtime: org.kde.Platform
 runtime-version: '6.10'
 sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: '6.10'
 command: run-bitcoin-safe.sh
 separate-locales: false
+build-options:
+  env:
+  - BASEAPP_REMOVE_WEBENGINE=1
+cleanup-commands:
+- /app/cleanup-BaseApp.sh
 finish-args:
 - --share=network
 - --share=ipc
 - --socket=wayland
-- --device=all
 - --socket=fallback-x11
+- --device=all
 modules:
 - name: libusb
   buildsystem: autotools
@@ -23,7 +30,6 @@ modules:
   sources:
   - type: git
     url: https://github.com/libusb/libusb.git
-    tag: v1.0.26
     commit: 4239bc3a50014b8e6a5a2a59df1fff3b7469543b
 - name: hidapi
   buildsystem: cmake-ninja
@@ -41,7 +47,6 @@ modules:
   sources:
   - type: git
     url: https://github.com/libusb/hidapi.git
-    tag: hidapi-0.15.0
     commit: d6b2a974608dec3b76fb1e36c189f22b9cf3650c
 - name: zbar
   buildsystem: autotools
@@ -69,7 +74,6 @@ modules:
   sources:
   - type: git
     url: https://github.com/mchehab/zbar.git
-    tag: 0.23.93
     commit: bb05ec54eec57f8397cb13fb9161372a281a1219
   - type: script
     dest-filename: autogen.sh
@@ -84,8 +88,8 @@ modules:
   - bash build-flatpak-app.sh
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/3f9b3796e595fb9f2d661a684b00772cc8f89b2e.tar.gz
-    sha256: 5d250d2de3410486d4a72f63154fe1c08dde96d9013efbf4586e396f1284bff4
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/2219ac941392ceaf8ed68444fa26d2df5ddf0995.tar.gz
+    sha256: 532fcb73af97f3798decabad63deb4639ad6228f58c7f17691c8fdb7a4eb50c7
   - type: file
     path: build-flatpak-app.sh
   - type: file
