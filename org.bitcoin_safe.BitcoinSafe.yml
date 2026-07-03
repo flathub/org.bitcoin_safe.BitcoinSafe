@@ -11,6 +11,10 @@ build-options:
   - BASEAPP_REMOVE_WEBENGINE=1
 cleanup:
 - /share/bitcoin-safe/vendor
+- /include
+- /lib/pkgconfig
+- /share/doc
+- /share/man
 cleanup-commands:
 - /app/cleanup-BaseApp.sh
 - rm -rf /app/lib/python3.13/site-packages/Cryptodome/SelfTest
@@ -34,11 +38,6 @@ modules:
   - -DHIDAPI_WITH_LIBUSB=ON
   - -DHIDAPI_BUILD_HIDTEST=OFF
   - -DHIDAPI_BUILD_TESTGUI=OFF
-  cleanup:
-  - /include
-  - /lib/pkgconfig
-  - /share/doc
-  - /share/man
   sources:
   - type: git
     url: https://github.com/libusb/hidapi.git
@@ -63,10 +62,6 @@ modules:
   - --enable-shared
   cleanup:
   - /bin
-  - /include
-  - /lib/pkgconfig
-  - /share/doc
-  - /share/man
   sources:
   - type: git
     url: https://github.com/mchehab/zbar.git
@@ -85,5 +80,5 @@ modules:
   - bash tools/build-linux/flathub-flatpak/build-flatpak-app.sh
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/bff0741407d5d40fb6c5f4f97528187463e36a69.tar.gz
-    sha256: 352ee1de1b013728e25fd502b50face3aa518a98ed1f8daa8c884b9e48268f21
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/be8355df856308df84fa942e0794605fffc7e16d.tar.gz
+    sha256: 6772d0d5a35bda08b72f1b5e0f50454cd63bd048d138817f9d14196490f967e6
