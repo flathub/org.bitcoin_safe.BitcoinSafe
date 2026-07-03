@@ -9,8 +9,16 @@ separate-locales: false
 build-options:
   env:
   - BASEAPP_REMOVE_WEBENGINE=1
+cleanup:
+- /share/bitcoin-safe/vendor
 cleanup-commands:
 - /app/cleanup-BaseApp.sh
+- rm -rf /app/lib/python3.13/site-packages/Cryptodome/SelfTest
+- rm -rf /app/lib/python3.13/site-packages/psutil/tests /app/lib/python3.13/site-packages/qrcode/tests /app/lib/python3.13/site-packages/websocket/tests
+- find /app -name '.git' -type d -print0 | xargs -0 --no-run-if-empty rm -rf
+- find /app -type f \( -name '.gitmodules' -o -name '.gitignore' -o -name '.gitattributes' -o -name '.gitkeep' \) -delete
+- find /app -path '*/__pycache__*' -delete
+- find /app -exec touch -h -d "@${SOURCE_DATE_EPOCH}" {} +
 finish-args:
 - --share=network
 - --share=ipc
@@ -74,12 +82,8 @@ modules:
 - name: bitcoin-safe
   buildsystem: simple
   build-commands:
-  - bash build-flatpak-app.sh
+  - bash tools/build-linux/flathub-flatpak/build-flatpak-app.sh
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/2219ac941392ceaf8ed68444fa26d2df5ddf0995.tar.gz
-    sha256: 532fcb73af97f3798decabad63deb4639ad6228f58c7f17691c8fdb7a4eb50c7
-  - type: file
-    path: build-flatpak-app.sh
-  - type: file
-    path: run-bitcoin-safe.sh
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/bff0741407d5d40fb6c5f4f97528187463e36a69.tar.gz
+    sha256: 352ee1de1b013728e25fd502b50face3aa518a98ed1f8daa8c884b9e48268f21

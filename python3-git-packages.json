@@ -3,60 +3,69 @@
     "buildsystem": "simple",
     "build-commands": [
         "install -d /app/share/bitcoin-safe/vendor/git-packages",
-        "cp -t /app/share/bitcoin-safe/vendor/git-packages ./*"
+        "cp -t /app/share/bitcoin-safe/vendor/git-packages _vendor/git-packages/*"
     ],
     "sources": [
         {
             "type": "file",
-            "path": "git-packages-lock.json"
+            "path": "git-packages-lock.json",
+            "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
             "url": "https://github.com/andreasgriffin/bitcoin-safe-lib/archive/9f2636b19a44ca4ae01f8b0ff4c0582fe5cb93ad.tar.gz",
             "dest-filename": "bitcoin_safe_lib-9f2636b19a44ca4ae01f8b0ff4c0582fe5cb93ad.tar.gz",
-            "sha256": "1a5a60561e29609adce7d48b98481807e51446797eabd9426babb2fff61db25f"
+            "sha256": "1a5a60561e29609adce7d48b98481807e51446797eabd9426babb2fff61db25f",
+            "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
             "url": "https://github.com/andreasgriffin/HWI/archive/38ccb5169365d2a635539ef828ab46ed81dd1205.tar.gz",
             "dest-filename": "hwi-38ccb5169365d2a635539ef828ab46ed81dd1205.tar.gz",
-            "sha256": "6806b3c7817b0416c7d660ed674d54a1772bb9c5e3186840e5b708e824adaa64"
+            "sha256": "6806b3c7817b0416c7d660ed674d54a1772bb9c5e3186840e5b708e824adaa64",
+            "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
             "url": "https://github.com/Blockstream/Jade/archive/fb2642397ed7afdda08f3d1380ac6ee21164e7e6.tar.gz",
             "dest-filename": "jade_client-fb2642397ed7afdda08f3d1380ac6ee21164e7e6.tar.gz",
-            "sha256": "8c4881130f3b93711e272f9d98e1cb627904a38b3f73c2bfd51b57e12f2cd36b"
+            "sha256": "8c4881130f3b93711e272f9d98e1cb627904a38b3f73c2bfd51b57e12f2cd36b",
+            "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
             "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/26450e4fa299dcbb0073360558c67a7ef17d8951.tar.gz",
             "dest-filename": "bitcoin_usb-26450e4fa299dcbb0073360558c67a7ef17d8951.tar.gz",
-            "sha256": "dcebbebff388bb66418281269cb36f1747d6a46136f398380dfb5980a0655a46"
+            "sha256": "dcebbebff388bb66418281269cb36f1747d6a46136f398380dfb5980a0655a46",
+            "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
             "url": "https://github.com/andreasgriffin/pyzbar/archive/bad840c31dd0f92b616ca29642a408804d5cfa37.tar.gz",
             "dest-filename": "pyzbar-bad840c31dd0f92b616ca29642a408804d5cfa37.tar.gz",
-            "sha256": "ba5146814c9ac6a6bf4ebf4292827bbbe42ba0787f307d0dc79c5a006480a6ab"
+            "sha256": "ba5146814c9ac6a6bf4ebf4292827bbbe42ba0787f307d0dc79c5a006480a6ab",
+            "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
             "url": "https://github.com/andreasgriffin/bitcoin-qr-tools/archive/a3d10dff6d7257240f1bfded36ed8aad6be172da.tar.gz",
             "dest-filename": "bitcoin_qr_tools-a3d10dff6d7257240f1bfded36ed8aad6be172da.tar.gz",
-            "sha256": "237d9d50a280fcdd33dc1fa0b4ed5106a542925e9290347573a553ba1b5863fc"
+            "sha256": "237d9d50a280fcdd33dc1fa0b4ed5106a542925e9290347573a553ba1b5863fc",
+            "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
             "url": "https://github.com/andreasgriffin/bitcoin-nostr-chat/archive/ae05c7ee97371415b4bf5e9aacf4a2c7ed86eb1d.tar.gz",
             "dest-filename": "bitcoin_nostr_chat-ae05c7ee97371415b4bf5e9aacf4a2c7ed86eb1d.tar.gz",
-            "sha256": "c26ffd2e353087d9a379a0984e5341acb14a8ded2aa6e53fc8d9a4d2e28fc894"
+            "sha256": "c26ffd2e353087d9a379a0984e5341acb14a8ded2aa6e53fc8d9a4d2e28fc894",
+            "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
             "url": "https://github.com/andreasgriffin/btcpay-tools/archive/ad910a68616288358dea1f614916d92addcefbf3.tar.gz",
             "dest-filename": "btcpay_tools-ad910a68616288358dea1f614916d92addcefbf3.tar.gz",
-            "sha256": "89daa4e530b7dc2587a3021651015e72056544ee44c72f35e93632ac3377aa81"
+            "sha256": "89daa4e530b7dc2587a3021651015e72056544ee44c72f35e93632ac3377aa81",
+            "dest": "_vendor/git-packages"
         }
     ]
 }
