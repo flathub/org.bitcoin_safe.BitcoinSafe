@@ -22,7 +22,6 @@ cleanup-commands:
 - find /app -name '.git' -type d -print0 | xargs -0 --no-run-if-empty rm -rf
 - find /app -type f \( -name '.gitmodules' -o -name '.gitignore' -o -name '.gitattributes' -o -name '.gitkeep' \) -delete
 - find /app -path '*/__pycache__*' -delete
-- find /app -exec touch -h -d "@${SOURCE_DATE_EPOCH}" {} +
 finish-args:
 - --share=network
 - --share=ipc
