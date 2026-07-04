@@ -19,9 +19,6 @@ cleanup-commands:
 - /app/cleanup-BaseApp.sh
 - rm -rf /app/lib/python3.13/site-packages/Cryptodome/SelfTest
 - rm -rf /app/lib/python3.13/site-packages/psutil/tests /app/lib/python3.13/site-packages/qrcode/tests /app/lib/python3.13/site-packages/websocket/tests
-- find /app -name '.git' -type d -print0 | xargs -0 --no-run-if-empty rm -rf
-- find /app -type f \( -name '.gitmodules' -o -name '.gitignore' -o -name '.gitattributes' -o -name '.gitkeep' \) -delete
-- find /app -path '*/__pycache__*' -delete
 finish-args:
 - --share=network
 - --share=ipc
