@@ -9,8 +9,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/d6a47f87691564144c48fc8e83add03a09ab8543.tar.gz",
-            "sha256": "c27f17c19ac156c1685921f605656806728ccf473e04d2f95e5013051faa1d94"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/823f346a9f26095809b43d0cff973633ad092267.tar.gz",
+            "sha256": "81985d6e704507c49b5b11d905651519d35f623300d6159b7f1c1b0f9944c9b3"
         },
         {
             "type": "file",
