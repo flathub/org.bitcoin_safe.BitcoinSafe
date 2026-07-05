@@ -2,15 +2,13 @@
     "name": "python3-runtime",
     "buildsystem": "simple",
     "build-commands": [
-        "install -d /app/share/bitcoin-safe/vendor/runtime",
-        "install -Dm644 tools/build-linux/flathub-flatpak/requirements-runtime.txt /app/share/bitcoin-safe/vendor/runtime/requirements-runtime.txt",
-        "cp -t /app/share/bitcoin-safe/vendor/runtime _vendor/runtime/*"
+        "env PIP_CONFIG_FILE=/dev/null PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_INDEX=1 PIP_FIND_LINKS='/app/share/bitcoin-safe/vendor/build-backends _vendor/runtime' python3 -m pip install --ignore-installed --no-dependencies --no-warn-script-location --no-compile --prefix=/app -r tools/build-linux/flathub-flatpak/requirements-runtime.txt"
     ],
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/823f346a9f26095809b43d0cff973633ad092267.tar.gz",
-            "sha256": "81985d6e704507c49b5b11d905651519d35f623300d6159b7f1c1b0f9944c9b3"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/4dc32e6f05c75ab63cdc1c0f086a0aba43836f31.tar.gz",
+            "sha256": "89a8ccb0d2be5223867297c376259cef9699595dd42665903ab54ebc30d8d282"
         },
         {
             "type": "file",

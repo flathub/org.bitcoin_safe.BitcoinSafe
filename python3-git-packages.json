@@ -2,15 +2,9 @@
     "name": "python3-git-packages",
     "buildsystem": "simple",
     "build-commands": [
-        "install -d /app/share/bitcoin-safe/vendor/git-packages",
-        "cp -t /app/share/bitcoin-safe/vendor/git-packages _vendor/git-packages/*"
+        "env PIP_CONFIG_FILE=/dev/null PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_INDEX=1 PIP_FIND_LINKS=/app/share/bitcoin-safe/vendor/build-backends python3 -m pip install --ignore-installed --no-dependencies --no-warn-script-location --no-compile --prefix=/app _vendor/git-packages/*"
     ],
     "sources": [
-        {
-            "type": "file",
-            "path": "git-packages-lock.json",
-            "dest": "_vendor/git-packages"
-        },
         {
             "type": "file",
             "url": "https://github.com/andreasgriffin/bitcoin-safe-lib/archive/9f2636b19a44ca4ae01f8b0ff4c0582fe5cb93ad.tar.gz",
