@@ -2,12 +2,12 @@
     "name": "python3-runtime",
     "buildsystem": "simple",
     "build-options": {
-        "env": [
-            "PIP_CONFIG_FILE=/dev/null",
-            "PIP_DISABLE_PIP_VERSION_CHECK=1",
-            "PIP_NO_INDEX=1",
-            "PIP_FIND_LINKS=/app/share/bitcoin-safe/vendor/build-backends _vendor/runtime"
-        ]
+        "env": {
+            "PIP_CONFIG_FILE": "/dev/null",
+            "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+            "PIP_NO_INDEX": "1",
+            "PIP_FIND_LINKS": "/app/share/bitcoin-safe/vendor/build-backends _vendor/runtime"
+        }
     },
     "build-commands": [
         "python3 -m pip install --ignore-installed --no-dependencies --no-warn-script-location --no-compile --prefix=/app -r tools/build-linux/flathub-flatpak/requirements-runtime.txt"
