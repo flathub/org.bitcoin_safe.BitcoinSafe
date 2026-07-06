@@ -13,10 +13,10 @@ cleanup:
 - /share/bitcoin-safe/vendor
 - /include
 - /lib/pkgconfig
-- /lib/python3.13/site-packages/Cryptodome/SelfTest
-- /lib/python3.13/site-packages/psutil/tests
-- /lib/python3.13/site-packages/qrcode/tests
-- /lib/python3.13/site-packages/websocket/tests
+- /lib/python3.*/site-packages/Cryptodome/SelfTest
+- /lib/python3.*/site-packages/psutil/tests
+- /lib/python3.*/site-packages/qrcode/tests
+- /lib/python3.*/site-packages/websocket/tests
 - /share/doc
 - /share/man
 cleanup-commands:
