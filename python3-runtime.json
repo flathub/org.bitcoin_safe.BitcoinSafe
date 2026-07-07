@@ -10,13 +10,13 @@
         }
     },
     "build-commands": [
-        "python3 -m pip install --ignore-installed --no-dependencies --no-warn-script-location --no-compile --prefix=/app -r tools/build-linux/flathub-flatpak/requirements-runtime.txt"
+        "python3 -m pip install --ignore-installed --no-dependencies --no-warn-script-location --no-compile --prefix=/app -r tools/build_linux/flathub_flatpak/requirements-runtime.txt"
     ],
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/4dc32e6f05c75ab63cdc1c0f086a0aba43836f31.tar.gz",
-            "sha256": "89a8ccb0d2be5223867297c376259cef9699595dd42665903ab54ebc30d8d282"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/c004f96b0680357b5111b3840ce4737c57545b5f.tar.gz",
+            "sha256": "e3db3c08dd5aacc4ff752a8e0df083a2322b22fb06cae150e7e2387a09ff3b31"
         },
         {
             "type": "file",
