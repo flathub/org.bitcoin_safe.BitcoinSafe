@@ -75,8 +75,8 @@ modules:
 - name: bitcoin-safe
   buildsystem: simple
   build-commands:
-  - make -f tools/build-linux/flathub-flatpak/Makefile flatpak-app
+  - make -f tools/build_linux/flathub_flatpak/Makefile flatpak-app
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/4dc32e6f05c75ab63cdc1c0f086a0aba43836f31.tar.gz
-    sha256: 89a8ccb0d2be5223867297c376259cef9699595dd42665903ab54ebc30d8d282
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/87d2411a09685f4eef3b3c91a687e6d44a47f7a0.tar.gz
+    sha256: dfc3878633ed77f4cc3018ae71791f3f61be40d88430afd5de4531fe3240b616

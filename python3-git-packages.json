@@ -15,16 +15,16 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe-lib/archive/9f2636b19a44ca4ae01f8b0ff4c0582fe5cb93ad.tar.gz",
-            "dest-filename": "bitcoin_safe_lib-9f2636b19a44ca4ae01f8b0ff4c0582fe5cb93ad.tar.gz",
-            "sha256": "1a5a60561e29609adce7d48b98481807e51446797eabd9426babb2fff61db25f",
+            "url": "https://github.com/andreasgriffin/bitcoin-safe-lib/archive/24c9a182ab96c79a976892564cdfd5c163d432f2.tar.gz",
+            "dest-filename": "bitcoin_safe_lib-24c9a182ab96c79a976892564cdfd5c163d432f2.tar.gz",
+            "sha256": "c1d2accf91c539166815643343670a01f63f643e9c9b3f08e4d81e53a69b5ada",
             "dest": "_vendor/git-packages"
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/HWI/archive/38ccb5169365d2a635539ef828ab46ed81dd1205.tar.gz",
-            "dest-filename": "hwi-38ccb5169365d2a635539ef828ab46ed81dd1205.tar.gz",
-            "sha256": "6806b3c7817b0416c7d660ed674d54a1772bb9c5e3186840e5b708e824adaa64",
+            "url": "https://github.com/andreasgriffin/HWI/archive/8d454d7aa725bce78e50d7ab12d3cae40b77404e.tar.gz",
+            "dest-filename": "hwi-8d454d7aa725bce78e50d7ab12d3cae40b77404e.tar.gz",
+            "sha256": "28cf40382899251683b2c3dfeb4aefb9f6dcaa1a7eb149f45917b9de139b8648",
             "dest": "_vendor/git-packages"
         },
         {
@@ -36,9 +36,9 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/26450e4fa299dcbb0073360558c67a7ef17d8951.tar.gz",
-            "dest-filename": "bitcoin_usb-26450e4fa299dcbb0073360558c67a7ef17d8951.tar.gz",
-            "sha256": "dcebbebff388bb66418281269cb36f1747d6a46136f398380dfb5980a0655a46",
+            "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/f07aae8eb85e392e193e124e689b169c9da3f7af.tar.gz",
+            "dest-filename": "bitcoin_usb-f07aae8eb85e392e193e124e689b169c9da3f7af.tar.gz",
+            "sha256": "df19805e594f3350d92257ad595d1cb5f27724e639383912b3ecdf27a29c6dfc",
             "dest": "_vendor/git-packages"
         },
         {
@@ -50,9 +50,9 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/bitcoin-qr-tools/archive/a3d10dff6d7257240f1bfded36ed8aad6be172da.tar.gz",
-            "dest-filename": "bitcoin_qr_tools-a3d10dff6d7257240f1bfded36ed8aad6be172da.tar.gz",
-            "sha256": "237d9d50a280fcdd33dc1fa0b4ed5106a542925e9290347573a553ba1b5863fc",
+            "url": "https://github.com/andreasgriffin/bitcoin-qr-tools/archive/b73032171827c7543e21ebc76f59c2879f100986.tar.gz",
+            "dest-filename": "bitcoin_qr_tools-b73032171827c7543e21ebc76f59c2879f100986.tar.gz",
+            "sha256": "05234d8aa9dd165f1562446c5c977a55cc511da627e085181798b04e3cf06441",
             "dest": "_vendor/git-packages"
         },
         {
