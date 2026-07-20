@@ -15,8 +15,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/c208831222aa2de7eb57e13cb381778e99d7060a.tar.gz",
-            "sha256": "f6604879b514b35fb6bb008f9694c13a36b3dda853fdbe0d5694e6211838e8d0"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/0eb7803ce58726f700e1caeb6c6188aed2b9b38e.tar.gz",
+            "sha256": "01c647ebdad1131f667c9afeb9dadcf06e48c4ac1f184fc52cecacff9ec4241b"
         },
         {
             "type": "file",
@@ -200,8 +200,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/96/9a/982e48afcffcd727a9144506720ffd4224b6b7e355c98641866f38b7c043/jaraco_functools-4.5.0-py3-none-any.whl",
-            "sha256": "79ce39246eddbde4b3a03b77ea5f0f7878dc669b166a66cf3fa8e266aa3fa2f4",
+            "url": "https://files.pythonhosted.org/packages/02/36/ecc85bc96c273dc8a11273ed4782272975e6338d4a3e9228621175edf0e3/jaraco_functools-4.6.0-py3-none-any.whl",
+            "sha256": "99e3dc0060c5cbe8fcd1cdb36258e2a65ca40f1566b2033b12abb1bb44dd3c30",
             "dest": "_vendor/runtime"
         },
         {
@@ -284,8 +284,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/81/e6/cd9575ac904136b3cbf7aa7ee819ef86eedb7274e46f230e94ea4342e729/platformdirs-4.10.0-py3-none-any.whl",
-            "sha256": "fb516cdb12eb0d857d0cd85a7c57cea4d060bee4578d6cf5a14dfdf8cbf8784a",
+            "url": "https://files.pythonhosted.org/packages/ec/73/6fd0bb9ce84138c3857f12e9de63bc901852975a092d545f18087a204aa2/platformdirs-4.10.1-py3-none-any.whl",
+            "sha256": "0e4eff26be2d75293977f7cddc153fd9b8eaa7fb0c7b64ffe4076cb443117443",
             "dest": "_vendor/runtime"
         },
         {
@@ -458,8 +458,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/fd/4d/4b880086bd0d3e034d25647be1d830afc3e3f610e98c4ab3490af6b1b6d5/yarl-1.24.2-py3-none-any.whl",
-            "sha256": "2783d9226db8797636cd6896e4de81feed252d1db72265686c9558d97a4d94b9",
+            "url": "https://files.pythonhosted.org/packages/61/02/962c1cbfc401a30c1d034dc67ff395f64b52302c6d62de556c1fca99acc0/yarl-1.24.5-py3-none-any.whl",
+            "sha256": "a33700d13d9b7d84fd10947b09ff69fb9a792e519c8cb9764a3ca70baa6c23a7",
             "dest": "_vendor/runtime"
         }
     ]

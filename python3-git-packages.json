@@ -64,9 +64,9 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/btcpay-tools/archive/ad910a68616288358dea1f614916d92addcefbf3.tar.gz",
-            "dest-filename": "btcpay_tools-ad910a68616288358dea1f614916d92addcefbf3.tar.gz",
-            "sha256": "89daa4e530b7dc2587a3021651015e72056544ee44c72f35e93632ac3377aa81",
+            "url": "https://github.com/andreasgriffin/btcpay-tools/archive/1de5b0c7f2fa2e1654936c4913436b3802b55608.tar.gz",
+            "dest-filename": "btcpay_tools-1de5b0c7f2fa2e1654936c4913436b3802b55608.tar.gz",
+            "sha256": "b44655f2cb4871451a2243238030519a4a9999414cb5305a85fa9c5d374e8766",
             "dest": "_vendor/git-packages"
         }
     ]

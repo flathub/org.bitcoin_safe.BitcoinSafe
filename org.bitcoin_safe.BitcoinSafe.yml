@@ -78,5 +78,5 @@ modules:
   - make -f tools/build_linux/flathub_flatpak/Makefile flatpak-app
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/c208831222aa2de7eb57e13cb381778e99d7060a.tar.gz
-    sha256: f6604879b514b35fb6bb008f9694c13a36b3dda853fdbe0d5694e6211838e8d0
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/0eb7803ce58726f700e1caeb6c6188aed2b9b38e.tar.gz
+    sha256: 01c647ebdad1131f667c9afeb9dadcf06e48c4ac1f184fc52cecacff9ec4241b
