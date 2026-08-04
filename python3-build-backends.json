@@ -9,8 +9,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/0eb7803ce58726f700e1caeb6c6188aed2b9b38e.tar.gz",
-            "sha256": "01c647ebdad1131f667c9afeb9dadcf06e48c4ac1f184fc52cecacff9ec4241b"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/cf081ad70a0c479bd6b7d1a967dfd2b23949e72b.tar.gz",
+            "sha256": "8d234219306074201f0b6fa5cbd32d41504c237127c2a358f2e207567135fa85"
         },
         {
             "type": "file",
@@ -32,8 +32,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/88/61/df1d9db18f188d0ae648956a1decadc0e3b77d0571474370fd01f28a82b1/filelock-3.31.1-py3-none-any.whl",
-            "sha256": "9ea33146c780161bf67cb20c7cb26b651566820d65ad8dfdd79422602a2dcfc0",
+            "url": "https://files.pythonhosted.org/packages/c1/e8/72f8cef9fdfeffe06213fe8508039396ee48daa0e3259457ed766173bfd6/filelock-3.32.2-py3-none-any.whl",
+            "sha256": "87dd94cf281e586d135fa51132b8e3d9a598b316e90377a288663c9321036c82",
             "dest": "_vendor/build-backends"
         },
         {
@@ -44,8 +44,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/ef/2f/c5464532e965badff2f4c4c1a3a83f5697f0d7c407ed0cda44aaa99bb451/certifi-2026.6.17-py3-none-any.whl",
-            "sha256": "2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db",
+            "url": "https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl",
+            "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
             "dest": "_vendor/build-backends"
         },
         {
@@ -110,14 +110,14 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/cb/a8/20d0723294217e47de6d9e2e40fd4a9d2f7c4b6ef974babd482a59743694/fastjsonschema-2.21.2-py3-none-any.whl",
-            "sha256": "1c797122d0a86c5cace2e54bf4e819c36223b552017172f32c5c024a6b77e463",
+            "url": "https://files.pythonhosted.org/packages/17/e1/62cc96341f01bdff2ba967441939178fcd1900d11ce7e6554d9954a5d7ec/fastjsonschema-2.22.1-py3-none-any.whl",
+            "sha256": "cf377ff5c9a6f4f3125fb35f75a2c5767bd824ffbcf62c209a93cd48d1453999",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/ec/73/6fd0bb9ce84138c3857f12e9de63bc901852975a092d545f18087a204aa2/platformdirs-4.10.1-py3-none-any.whl",
-            "sha256": "0e4eff26be2d75293977f7cddc153fd9b8eaa7fb0c7b64ffe4076cb443117443",
+            "url": "https://files.pythonhosted.org/packages/7d/68/d8d58938dfb1370b266a1a729e6d77a985be23689a0496498ee17b2cbf90/platformdirs-4.11.0-py3-none-any.whl",
+            "sha256": "360ccded2b7fce0af0ff80cc8f5942a1c5d99b0e856033acb030bfc634709e74",
             "dest": "_vendor/build-backends"
         },
         {
@@ -170,14 +170,14 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6f/08/f2e7d62c460faae0926f2d6e423694aa409ced3bc1fe2927a0a6e5f05416/cffi-2.1.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "799416bae98336e400981ff6e532d67d5c709cfb30afb79865a1315f94b0e224",
+            "url": "https://files.pythonhosted.org/packages/95/95/86342356ff5953b3fb06f7ef7c5bee212d45e770abc7218d451b9148313c/cffi-2.1.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "a931079504ecc49efed7744c476a5c343a92fabf66dec2db95edb1b2fdc770e2",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/e6/8b/43011f7ebe515a8aa20d61f290a326cd890c2e738e16e59eaff8d9c3a412/cryptography-49.0.0-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "0e959b578856a3924bc0cbb710fc12c387b9412a951389f3ca61704a9e25f325",
+            "url": "https://files.pythonhosted.org/packages/d9/41/029086c34d91052fc3b88bcc8056f709a7c915c7a23b235a54eb800b1c97/cryptography-50.0.0-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "06a32a980526a6ab9a4b9bf8f7385800791e2bb960903cb6b530e4817509a3b7",
             "dest": "_vendor/build-backends"
         },
         {
@@ -224,8 +224,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/98/5f/0b14d52220ddeb63089e75b3c0d58ae53f9fa29da7c8827bbf473ac0577b/pbs_installer-2026.7.18-py3-none-any.whl",
-            "sha256": "fefa193fa55bfe1a09aedbb8fc24ba2fc05252985f3e90ffbf89175e9490aa9a",
+            "url": "https://files.pythonhosted.org/packages/53/05/1f7440a1073978b531c68331eda441c4aa4eaf74b51d98a9b02819c0b5ab/pbs_installer-2026.7.28-py3-none-any.whl",
+            "sha256": "0c1c141807fee0dc3de6fde5fc4f59676df8709f3a33904bde6cf6c41d5d76c7",
             "dest": "_vendor/build-backends"
         },
         {
@@ -272,14 +272,14 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/9d/ae/84bc0d2440c95772272bb6f4b3d09ccf08b2898fce89b3d4f969a9fc74e9/python_discovery-1.4.4-py3-none-any.whl",
-            "sha256": "abebe9120b43453b68c908acfb1e72a19d1a959ed2cb620ad38fc57d08056dbe",
+            "url": "https://files.pythonhosted.org/packages/6a/07/a89b539750a159d5101c4eb9fc84e2961f65cefbd5e0b7440b284471c0b0/python_discovery-1.5.1-py3-none-any.whl",
+            "sha256": "ac07f44cade589d954e9d6a1e1468539fdddd2cf676beb51da73e0f156b7c932",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/c1/7c/4e7225d46d634a0d8d534dd8a6ce0c319d09b4d0cf0337eb314ca4789d8c/virtualenv-21.6.1-py3-none-any.whl",
-            "sha256": "afe991df855715a2b2f60edfcc0107ef95a79fdfd8cb4cdaa71603d1c12e463b",
+            "url": "https://files.pythonhosted.org/packages/4b/a7/ded126c19495158a05c7202b3389139839d4cf78d622d453867778e0f7a8/virtualenv-21.7.1-py3-none-any.whl",
+            "sha256": "6394973f990536e34c05157179146c020284c42fe01da1dfeb0ba16c345280d9",
             "dest": "_vendor/build-backends"
         },
         {
