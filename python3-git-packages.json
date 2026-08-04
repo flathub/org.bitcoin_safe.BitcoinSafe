@@ -22,9 +22,9 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/HWI/archive/8d454d7aa725bce78e50d7ab12d3cae40b77404e.tar.gz",
-            "dest-filename": "hwi-8d454d7aa725bce78e50d7ab12d3cae40b77404e.tar.gz",
-            "sha256": "28cf40382899251683b2c3dfeb4aefb9f6dcaa1a7eb149f45917b9de139b8648",
+            "url": "https://github.com/andreasgriffin/HWI/archive/2797ce34c8b647d51cb652e6a089766d58320f59.tar.gz",
+            "dest-filename": "hwi-2797ce34c8b647d51cb652e6a089766d58320f59.tar.gz",
+            "sha256": "dac873b50dc8bba48f42052a3d06dda7d2e0f2e117b49851eac3a4dd0e7aa2ef",
             "dest": "_vendor/git-packages"
         },
         {
@@ -36,9 +36,9 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/f07aae8eb85e392e193e124e689b169c9da3f7af.tar.gz",
-            "dest-filename": "bitcoin_usb-f07aae8eb85e392e193e124e689b169c9da3f7af.tar.gz",
-            "sha256": "df19805e594f3350d92257ad595d1cb5f27724e639383912b3ecdf27a29c6dfc",
+            "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/79cc62186b51a61bf3b05226e3d31f81e94792ae.tar.gz",
+            "dest-filename": "bitcoin_usb-79cc62186b51a61bf3b05226e3d31f81e94792ae.tar.gz",
+            "sha256": "33f3439cdd7e5838c19a644eed035f32b2c68cf2d8143013a206d5db3e73ac01",
             "dest": "_vendor/git-packages"
         },
         {

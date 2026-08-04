@@ -15,8 +15,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/0eb7803ce58726f700e1caeb6c6188aed2b9b38e.tar.gz",
-            "sha256": "01c647ebdad1131f667c9afeb9dadcf06e48c4ac1f184fc52cecacff9ec4241b"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/cf081ad70a0c479bd6b7d1a967dfd2b23949e72b.tar.gz",
+            "sha256": "8d234219306074201f0b6fa5cbd32d41504c237127c2a358f2e207567135fa85"
         },
         {
             "type": "file",
@@ -26,8 +26,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/9d/6e/dbf1d0625dc711fb2851f4f3c3055c39ed58bae92082d8c627dbe6013736/aiohttp-3.14.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
-            "sha256": "faccab372e66bc76d5731525e7f1143c922271725b9d38c9f97edcc66266b451",
+            "url": "https://files.pythonhosted.org/packages/ca/1c/7da8d08e74d56f00070822f9638ff3f1c563f8ad87d1efa996c87bfc8644/aiohttp-3.14.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+            "sha256": "d7d2deec16eeedf55f2c7cf75b521ea3856a5177e123844f8fd0f114ce252cb5",
             "dest": "_vendor/runtime"
         },
         {
@@ -50,8 +50,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl",
-            "sha256": "1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53",
+            "url": "https://files.pythonhosted.org/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl",
+            "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
             "dest": "_vendor/runtime"
         },
         {
@@ -92,14 +92,14 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/ef/2f/c5464532e965badff2f4c4c1a3a83f5697f0d7c407ed0cda44aaa99bb451/certifi-2026.6.17-py3-none-any.whl",
-            "sha256": "2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db",
+            "url": "https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl",
+            "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
             "dest": "_vendor/runtime"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6f/08/f2e7d62c460faae0926f2d6e423694aa409ced3bc1fe2927a0a6e5f05416/cffi-2.1.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "799416bae98336e400981ff6e532d67d5c709cfb30afb79865a1315f94b0e224",
+            "url": "https://files.pythonhosted.org/packages/95/95/86342356ff5953b3fb06f7ef7c5bee212d45e770abc7218d451b9148313c/cffi-2.1.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "a931079504ecc49efed7744c476a5c343a92fabf66dec2db95edb1b2fdc770e2",
             "dest": "_vendor/runtime"
         },
         {
@@ -134,8 +134,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/e6/8b/43011f7ebe515a8aa20d61f290a326cd890c2e738e16e59eaff8d9c3a412/cryptography-49.0.0-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "0e959b578856a3924bc0cbb710fc12c387b9412a951389f3ca61704a9e25f325",
+            "url": "https://files.pythonhosted.org/packages/d9/41/029086c34d91052fc3b88bcc8056f709a7c915c7a23b235a54eb800b1c97/cryptography-50.0.0-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "06a32a980526a6ab9a4b9bf8f7385800791e2bb960903cb6b530e4817509a3b7",
             "dest": "_vendor/runtime"
         },
         {
@@ -254,8 +254,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6a/03/c7ed0230f84615e2930259788b1fc1c485b159093f2070125ae9ddae327e/nostr_sdk-0.44.2-cp39-abi3-manylinux_2_17_x86_64.whl",
-            "sha256": "4e1dccf29b7ad6eeb44945175a45334d4e45d82881ae5f3a28433899f155831c",
+            "url": "https://files.pythonhosted.org/packages/7e/28/64604fd23dfccd68ba76e269f027cf597b083a308666fe46c202ed9f365d/nostr_sdk-0.44.8-cp39-abi3-manylinux_2_17_x86_64.whl",
+            "sha256": "e6b2f1b44ae95b35712008c2e0335ab833a30545a80c4afa45992b439b20e66b",
             "dest": "_vendor/runtime"
         },
         {
@@ -266,8 +266,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/92/ce/bd17ff5772938267fd49716e94ca24f616ff4cb1ff4c6be13085108037be/opencv_python_headless-4.13.0.92-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "0525a3d2c0b46c611e2130b5fdebc94cf404845d8fa64d2f3a3b679572a5bd22",
+            "url": "https://files.pythonhosted.org/packages/de/06/14c8c5d331bc72738683a9b227966aceaa4c6d08752f33d64578aebcb6f8/opencv_python_headless-4.14.0.94-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "5e02669eac0ba67b2a22d7245af1e8ee1a2ef1185ee526a063d8f0555224bd52",
             "dest": "_vendor/runtime"
         },
         {
@@ -284,8 +284,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/ec/73/6fd0bb9ce84138c3857f12e9de63bc901852975a092d545f18087a204aa2/platformdirs-4.10.1-py3-none-any.whl",
-            "sha256": "0e4eff26be2d75293977f7cddc153fd9b8eaa7fb0c7b64ffe4076cb443117443",
+            "url": "https://files.pythonhosted.org/packages/7d/68/d8d58938dfb1370b266a1a729e6d77a985be23689a0496498ee17b2cbf90/platformdirs-4.11.0-py3-none-any.whl",
+            "sha256": "360ccded2b7fce0af0ff80cc8f5942a1c5d99b0e856033acb030bfc634709e74",
             "dest": "_vendor/runtime"
         },
         {
@@ -296,8 +296,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/16/28/d5065b212685875d3924bcdb3201cbf467cb4d58a18aa19a8dfd99ea80a9/protobuf-4.25.9-py3-none-any.whl",
-            "sha256": "d49b615e7c935194ac161f0965699ac84df6112c378e05ec53da65d2e4cbb6d4",
+            "url": "https://files.pythonhosted.org/packages/19/c7/5f7c636ec43e0c545e28d1f1db71990108306f7bdcb89f069ba97e428e7f/protobuf-7.35.1-py3-none-any.whl",
+            "sha256": "4bc97768d8fe4ad6743c8a19403e314511ed9f6d13205b687e52421c023ac1b9",
             "dest": "_vendor/runtime"
         },
         {
@@ -434,8 +434,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/13/d1/64775ccfd5375a8cc484aed707386210f37e3a624185d1d265ca764427af/trezor-0.20.1-py3-none-any.whl",
-            "sha256": "6de50703102f90dc5399d40dd7c8134d13b6c54a617d41178b081baf2aeb2b91",
+            "url": "https://files.pythonhosted.org/packages/dd/bd/6535cc1e50804dcb1a2d39890ea14cc68e64a7260230ad3a69d789e72231/trezor-0.20.2-py3-none-any.whl",
+            "sha256": "1acd67664bdc1cf389e719c91a09e6069688afa05959715955d5c1c54a2fefde",
             "dest": "_vendor/runtime"
         },
         {
