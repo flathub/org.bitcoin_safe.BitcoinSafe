@@ -22,9 +22,9 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/HWI/archive/2797ce34c8b647d51cb652e6a089766d58320f59.tar.gz",
-            "dest-filename": "hwi-2797ce34c8b647d51cb652e6a089766d58320f59.tar.gz",
-            "sha256": "dac873b50dc8bba48f42052a3d06dda7d2e0f2e117b49851eac3a4dd0e7aa2ef",
+            "url": "https://github.com/andreasgriffin/HWI/archive/15a3511d64d35274c6cfe0df08b921a2a40588d4.tar.gz",
+            "dest-filename": "hwi-15a3511d64d35274c6cfe0df08b921a2a40588d4.tar.gz",
+            "sha256": "74a93614192e166a677c5657774305252ed8ee5af65cf60d7df193733709626c",
             "dest": "_vendor/git-packages"
         },
         {
@@ -36,9 +36,9 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/79cc62186b51a61bf3b05226e3d31f81e94792ae.tar.gz",
-            "dest-filename": "bitcoin_usb-79cc62186b51a61bf3b05226e3d31f81e94792ae.tar.gz",
-            "sha256": "33f3439cdd7e5838c19a644eed035f32b2c68cf2d8143013a206d5db3e73ac01",
+            "url": "https://github.com/andreasgriffin/bitcoin-usb/archive/57049ec8ad05665234834d97a2508b8fe0f10a53.tar.gz",
+            "dest-filename": "bitcoin_usb-57049ec8ad05665234834d97a2508b8fe0f10a53.tar.gz",
+            "sha256": "b39353b4ab0ff7cd1e384bb9fdf825a216c629d0825fad475ceb7cf384bfba88",
             "dest": "_vendor/git-packages"
         },
         {
@@ -50,9 +50,9 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/andreasgriffin/bitcoin-qr-tools/archive/b73032171827c7543e21ebc76f59c2879f100986.tar.gz",
-            "dest-filename": "bitcoin_qr_tools-b73032171827c7543e21ebc76f59c2879f100986.tar.gz",
-            "sha256": "05234d8aa9dd165f1562446c5c977a55cc511da627e085181798b04e3cf06441",
+            "url": "https://github.com/andreasgriffin/bitcoin-qr-tools/archive/8c690dca255a1e3939ff1c9cb3c27893e0861570.tar.gz",
+            "dest-filename": "bitcoin_qr_tools-8c690dca255a1e3939ff1c9cb3c27893e0861570.tar.gz",
+            "sha256": "302b54f36d74d4d2082601bd2e6afe1223b5a44e419603b85f8e4ced7122dff4",
             "dest": "_vendor/git-packages"
         },
         {

@@ -15,8 +15,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/cf081ad70a0c479bd6b7d1a967dfd2b23949e72b.tar.gz",
-            "sha256": "8d234219306074201f0b6fa5cbd32d41504c237127c2a358f2e207567135fa85"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/4ce099effa38e211e58c07b21822a19424b0b8c3.tar.gz",
+            "sha256": "c792ea1629474813c3d859e1fd85f42dd0c801277d1e52e396a3b6a6030c24d0"
         },
         {
             "type": "file",
@@ -272,8 +272,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl",
-            "sha256": "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e",
+            "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+            "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
             "dest": "_vendor/runtime"
         },
         {
