@@ -1,9 +1,9 @@
 app-id: org.bitcoin_safe.BitcoinSafe
 runtime: org.kde.Platform
-runtime-version: '6.10'
+runtime-version: '6.11'
 sdk: org.kde.Sdk
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: '6.10'
+base-version: '6.11'
 command: run-bitcoin-safe.sh
 separate-locales: false
 build-options:
@@ -26,6 +26,7 @@ finish-args:
 - --share=ipc
 - --socket=wayland
 - --socket=fallback-x11
+- --talk-name=org.kde.StatusNotifierWatcher
 - --device=all
 modules:
 - name: hidapi
@@ -78,5 +79,5 @@ modules:
   - make -f tools/build_linux/flathub_flatpak/Makefile flatpak-app
   sources:
   - type: archive
-    url: https://github.com/andreasgriffin/bitcoin-safe/archive/4ce099effa38e211e58c07b21822a19424b0b8c3.tar.gz
-    sha256: c792ea1629474813c3d859e1fd85f42dd0c801277d1e52e396a3b6a6030c24d0
+    url: https://github.com/andreasgriffin/bitcoin-safe/archive/0e384bc1027fdeb86767d07aa53636898059d9d4.tar.gz
+    sha256: 96e4951bd50cde08efc59b2fe4cc5c1a225c55f1b88bb73ac9bb97595a1d7122
