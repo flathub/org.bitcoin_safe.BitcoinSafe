@@ -9,8 +9,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/4ce099effa38e211e58c07b21822a19424b0b8c3.tar.gz",
-            "sha256": "c792ea1629474813c3d859e1fd85f42dd0c801277d1e52e396a3b6a6030c24d0"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/7916ff02dcde308c62fa3c968d720ed130aecf69.tar.gz",
+            "sha256": "508214c613ea0a82e49fb785e42f3d0557b074ba0dc27a345c3d52c17b28704d"
         },
         {
             "type": "file",
@@ -20,50 +20,50 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/bd/24/12818598c362d7f300f18e74db45963dbcb85150324092410c8b49405e42/pyproject_hooks-1.2.0-py3-none-any.whl",
-            "sha256": "9e5c6bfa8dcc30091c74b0cf803c81fdd29d94f01992a7707bc97babb1141913",
+            "url": "https://files.pythonhosted.org/packages/85/11/044d1ae1b4ec0d7af88ee5bc91e081be1022533032b906a7bdabdbb60977/pyproject_hooks-1.3.3-py3-none-any.whl",
+            "sha256": "5fc53fdac9f7bd63fbcdc868fb5f90b4784d78a53a3d3388cd738b807441a20b",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/0d/fe/6bea5c9162869c5beba5d9c8abbed835ec85bf1ec1fba05a3822325c45f3/build-1.5.0-py3-none-any.whl",
-            "sha256": "13f3eecb844759ab66efec90ca17639bbf14dc06cb2fdf37a9010322d9c50a6f",
+            "url": "https://files.pythonhosted.org/packages/ad/9b/9fb3585dabcd73a1b2a6267f63f62649347c9e6d072c9fde365b105abb2c/build-1.6.1-py3-none-any.whl",
+            "sha256": "ecd351a4be9d35a9eaaba244a7687143c9c7d4aea6ac964e7e7ddab20cbcf4e7",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/c1/e8/72f8cef9fdfeffe06213fe8508039396ee48daa0e3259457ed766173bfd6/filelock-3.32.2-py3-none-any.whl",
-            "sha256": "87dd94cf281e586d135fa51132b8e3d9a598b316e90377a288663c9321036c82",
+            "url": "https://files.pythonhosted.org/packages/ee/86/032133892a5de43b5a98200b01aadcad68cc255e274a762f08b8a76d2912/filelock-4.1.0-py3-none-any.whl",
+            "sha256": "2ce9818e3e2d8f284c1a964414447ef148d42a5fd5e2a477a7118e574b293ec1",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/79/d3/36a46a8ed992b781acbc05928bd5bee3c810cb0c3563bf81a7b0c04a1a76/msgpack-1.2.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
-            "sha256": "787c9bebb5833e8f6fc8abca3c0597683d8d87f56a8842b6b89c75a5f3176e2d",
+            "url": "https://files.pythonhosted.org/packages/b0/30/c394d37898db9212d1693456cdf363c7e1a097d0b63e10664007f3df3ec1/msgpack-1.2.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+            "sha256": "07c9733089d1b176c3dd2f7fa268452f9d5d784d076473499d754a58e8d1fbbb",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl",
-            "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+            "url": "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",
+            "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/98/2b/f97f1c193fb855c345d678f5077d6926034db0722df74c8f057020e05a25/charset_normalizer-3.4.9-py3-none-any.whl",
-            "sha256": "68e5f26a1ad57ded6d1cfb85331d1c1a195314756471d97758c48498bb4dcdf5",
+            "url": "https://files.pythonhosted.org/packages/fc/ad/d07d7862a62ffa6d79d68074d14823243dd235a77c45262acbf6adeb28bf/charset_normalizer-3.5.2-py3-none-any.whl",
+            "sha256": "b6b751274acb69d77b3323d6b7dbaa3c7fdfc1eb829b7eb61d262f32e1af9685",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl",
-            "sha256": "7f952cbe720b688055e3f87de14f5c3e5fdaa8bc3928985c4077ca689de849a2",
+            "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+            "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl",
-            "sha256": "9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897",
+            "url": "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl",
+            "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
             "dest": "_vendor/build-backends"
         },
         {
@@ -104,20 +104,20 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/33/67/6c1a89af18f160a9d7311fddbd62068e347c2bf6cfada8530ebfd4e75b8b/dulwich-1.2.12-py3-none-any.whl",
-            "sha256": "713de88063b80ab37d707e7aff17e403efb236156e09c34c149ada48d48b6e96",
+            "url": "https://files.pythonhosted.org/packages/f3/f1/f8abd5626e413c356a70aef0804893895dbc75de770cec87dba72302c577/dulwich-1.2.19-py3-none-any.whl",
+            "sha256": "efe585c9c2a921a26136dc2fba785faafb16d5eed39ea6d40c5dd1cd8140f0a3",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/17/e1/62cc96341f01bdff2ba967441939178fcd1900d11ce7e6554d9954a5d7ec/fastjsonschema-2.22.1-py3-none-any.whl",
-            "sha256": "cf377ff5c9a6f4f3125fb35f75a2c5767bd824ffbcf62c209a93cd48d1453999",
+            "url": "https://files.pythonhosted.org/packages/49/82/2755c7c982086f00d4dab85bc120ec35045a9fc2191893a6ce79afe94443/fastjsonschema-2.22.2-py3-none-any.whl",
+            "sha256": "0fb3915616adac85ccfdd737d26be1089845d2019819505b42d39888458f74d4",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/7d/68/d8d58938dfb1370b266a1a729e6d77a985be23689a0496498ee17b2cbf90/platformdirs-4.11.0-py3-none-any.whl",
-            "sha256": "360ccded2b7fce0af0ff80cc8f5942a1c5d99b0e856033acb030bfc634709e74",
+            "url": "https://files.pythonhosted.org/packages/f4/ba/223e00b885e960edd5d4b4d178c88acce019bd5b83786093681b8c393492/platformdirs-4.12.4-py3-none-any.whl",
+            "sha256": "78bfb9db2a8471ed7eebe3c3c932da413911042994e699b384fbb4493fa872d7",
             "dest": "_vendor/build-backends"
         },
         {
@@ -128,8 +128,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/26/48/bedf3ba4163e7db392c9d4cbdfc8217423196c8fccbe5a404a0f094fde63/installer-1.0.1-py3-none-any.whl",
-            "sha256": "011d045df8b954ced7dde3a7e42ae4418da40ecda7990f2d11d5ed7c146fd98b",
+            "url": "https://files.pythonhosted.org/packages/d7/7a/63547a792a12148882205d79e07644091d5b7690f40c2bb9d41452a8bdc2/installer-1.1.0-py3-none-any.whl",
+            "sha256": "f55f5728ff61d3dd54dbc5a397cf3f7307cb64b180c20b72afbebf01c9e2c8a0",
             "dest": "_vendor/build-backends"
         },
         {
@@ -164,8 +164,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl",
-            "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+            "url": "https://files.pythonhosted.org/packages/90/11/0e6f11117525ff0eec40ebac3d313376f102df93ca44ad9e893ee85e4f89/pycparser-3.11-py3-none-any.whl",
+            "sha256": "51d5a8ba2be0bbe440b99d2112604c95bbbc3c2748a64260186c541e1729cd80",
             "dest": "_vendor/build-backends"
         },
         {
@@ -176,8 +176,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/d9/41/029086c34d91052fc3b88bcc8056f709a7c915c7a23b235a54eb800b1c97/cryptography-50.0.0-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "06a32a980526a6ab9a4b9bf8f7385800791e2bb960903cb6b530e4817509a3b7",
+            "url": "https://files.pythonhosted.org/packages/21/69/64cef1f702bf6657e0cc186ed1a2891d50d29fb41586b254e1c07adea261/cryptography-50.0.2-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "630ebfea3bf689d075f82316324ff7433dc447fe6bc1bfc76524b74b4a9567d2",
             "dest": "_vendor/build-backends"
         },
         {
@@ -194,14 +194,14 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/38/26/ce90e9eed6f25aaa4a4fa305a2aaf2d2ad81fd69de8eb248ddd91c80d1e0/backports_zstd-1.6.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
-            "sha256": "e39258a09b1c7ca70b5e94a5c5ccfe4700b4250b8077cfeab31d0f79565d4c9b",
+            "url": "https://files.pythonhosted.org/packages/5d/6d/3c422b33d40aaca6e9d9fdd47f1a047ac499de749c887ab3dab62f731fb2/backports_zstd-1.8.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+            "sha256": "44a9004f9e809ea56910d326d21946650369db59eb86edc0c76840f21530704c",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/da/35/f2287558c17e29fafc8ef3daf819bb9834061cfa43bff8014f7df7f63bdc/anyio-4.14.2-py3-none-any.whl",
-            "sha256": "9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494",
+            "url": "https://files.pythonhosted.org/packages/12/b8/4bd346e22b28902df4d651910f5242c28d84e4a5c2435ca5c3f797ed7e2e/anyio-4.15.1-py3-none-any.whl",
+            "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
             "dest": "_vendor/build-backends"
         },
         {
@@ -212,32 +212,38 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl",
-            "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+            "url": "https://files.pythonhosted.org/packages/51/e9/3a7820be2bb0fe53b6bc9c3be26d3d1158004e4c3ab953aa6840b955b1e9/truststore-0.10.5-py3-none-any.whl",
+            "sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl",
-            "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+            "url": "https://files.pythonhosted.org/packages/02/06/a8d6a8f90d11b76d9086242b6bb0ee4b503473bfc8be34c2d5b067275c22/httpcore2-2.14.0-py3-none-any.whl",
+            "sha256": "4c4f64f4b544afeb778c42c0ffb5941b29e671157e90ed3f6dc787c4bca90cd1",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/53/05/1f7440a1073978b531c68331eda441c4aa4eaf74b51d98a9b02819c0b5ab/pbs_installer-2026.7.28-py3-none-any.whl",
-            "sha256": "0c1c141807fee0dc3de6fde5fc4f59676df8709f3a33904bde6cf6c41d5d76c7",
+            "url": "https://files.pythonhosted.org/packages/69/5a/469616aa8c2cbb0bb9dd67a3c18d07c01ab604cc0b236ee1c47d260c7f6e/httpx2-2.14.0-py3-none-any.whl",
+            "sha256": "9d20c13a10bae1773a0be3b0f1e5beeb4bdd549bc3a2ba18efa32897c65403e4",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/fa/3d/f4f2ba829efb54b6cd2d91349c7463316a9cc55a43fc980447416c88540f/pkginfo-1.12.1.2-py3-none-any.whl",
-            "sha256": "c783ac885519cab2c34927ccfa6bf64b5a704d7c69afaea583dd9b7afe969343",
+            "url": "https://files.pythonhosted.org/packages/d5/13/e48327d9ec27ac821583258fd869e49170b9b3b22e893e366b0ece58cd92/pbs_installer-2026.10.25-py3-none-any.whl",
+            "sha256": "19158e6fe4c941a230fdd017e48562ccea8a1d9320d9ffb30b38826d516b375b",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6f/7f/6d97fb5b00cdb89159b648d16bee1d7c2c5046605c83868f36f940c99098/poetry_core-2.4.0-py3-none-any.whl",
-            "sha256": "4305848477da00272bebd3f615bbec87f64bd117cdb858ab660b626a06a9d96c",
+            "url": "https://files.pythonhosted.org/packages/f3/8f/3e29b55ad92de525931a5683ca245af58d50d5756f35cd74555aaf859427/pkginfo-1.13.3-py3-none-any.whl",
+            "sha256": "66520cd19fddf3faa9554d68dcc0e6801944275bf612e8b581dfba968a9b4cc9",
+            "dest": "_vendor/build-backends"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/b7/25/7ed0a2ea4fe12f7fd0394387b5debbcd6fdbd06e5ac9daab96ba11471da8/poetry_core-2.5.0-py3-none-any.whl",
+            "sha256": "98ee465b66f7e14bb9fbe68fb5e00d0cff184f036993ec94610ae4b5612f3add",
             "dest": "_vendor/build-backends"
         },
         {
@@ -254,50 +260,50 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/13/bc/8c13eb66537dce1d2bd3a57132902f38d0e7f5bb46fa9f4daed9fe9d76ee/tomlkit-0.15.1-py3-none-any.whl",
-            "sha256": "177a05aece5a8ca5266fd3c448abb47b8d352f09d477d3ca8332db4d89b24304",
+            "url": "https://files.pythonhosted.org/packages/da/46/7d84138a60a8bd796825b2d38ebe92d0d16501ca57d501b7c5d677401bbc/tomlkit-0.15.2-py3-none-any.whl",
+            "sha256": "05562412163a3037b94497385fb7f9204c637bc605af7a48199e41cf2272f437",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/7c/a4/81502f486f01db95bc8320646a8a12511f5e556cb63d5e224d91816605c4/trove_classifiers-2026.6.1.19-py3-none-any.whl",
-            "sha256": "ab4c4ec93cc4a4e7815fa759906e05e6bb3f2fbd92ea0f897288c6a43efd15b3",
+            "url": "https://files.pythonhosted.org/packages/30/81/0da8afb52a71d0a4f2bd3152357b1a441e393b286374802b9d3addab4ab5/trove_classifiers-2026.9.21.13-py3-none-any.whl",
+            "sha256": "8b1ff4f9c191b1040b71c37f1e445ab99732911e3cd91de52838453a854d7a17",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/02/08/9c41fb51ab5b43eb21674aff13df270e8ba6c4b29c8624e328dc7a9482af/distlib-0.4.3-py2.py3-none-any.whl",
-            "sha256": "4b0ce306c966eb73bc3a7b6abad017c556dadd92c44701562cd528ac7fde4d5b",
+            "url": "https://files.pythonhosted.org/packages/c1/2b/238f02a4927fa2e27aa995371d240a468b52e42eae44a678434aff736b38/distlib-0.4.4-py2.py3-none-any.whl",
+            "sha256": "cf09d55b1e85a89576b036aeb71550bfd68320f3f21761ca329eadadad918638",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6a/07/a89b539750a159d5101c4eb9fc84e2961f65cefbd5e0b7440b284471c0b0/python_discovery-1.5.1-py3-none-any.whl",
-            "sha256": "ac07f44cade589d954e9d6a1e1468539fdddd2cf676beb51da73e0f156b7c932",
+            "url": "https://files.pythonhosted.org/packages/60/91/1aa70d3dfcab0dbcf88a2cbc3bce7f7c69562287a90216e617eaa4937e25/python_discovery-1.6.4-py3-none-any.whl",
+            "sha256": "530179cc51a1816d512b15635b3dc931295ae12efb183783ad31190a5d425d2b",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/4b/a7/ded126c19495158a05c7202b3389139839d4cf78d622d453867778e0f7a8/virtualenv-21.7.1-py3-none-any.whl",
-            "sha256": "6394973f990536e34c05157179146c020284c42fe01da1dfeb0ba16c345280d9",
+            "url": "https://files.pythonhosted.org/packages/bb/a9/c10d8a44a29fb94a18b43fdf11f38caca53ae7c9406f11a72b1cb8f624f1/virtualenv-21.14.13-py3-none-any.whl",
+            "sha256": "5fbb04138a4861580b78ba9110d529a26bc48fcc93c8ec36bc0202eeed96a788",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/48/3f/4799a3cfbc7b1731468c446daec8b13939d539bfe06b5a68c3ee73a8835d/poetry-2.4.1-py3-none-any.whl",
-            "sha256": "a91f13279a3c9add0d12c5ca5c7cb173622930a5c8272fee68c751cb5c72f951",
+            "url": "https://files.pythonhosted.org/packages/d6/7a/6b4fafb693200fc24fad8453ed200b902ab3fe56743cdcc756a6fae23ddf/poetry-2.5.1-py3-none-any.whl",
+            "sha256": "3f7910abc667ce0c33a67e306baf017acdec1c8eeec4aa64d176e530d8338a61",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/5d/40/e1e72872c6354b306daef1703549e8e83b4d43cfea356311bf722a043752/setuptools-83.0.0-py3-none-any.whl",
-            "sha256": "29b23c360f22f414dc7336bb39178cc7bcbf6021ed2733cde173f09dba19abb3",
+            "url": "https://files.pythonhosted.org/packages/ef/55/6dc6d6bb953bdfc52519a0059592c52b6e3b8ad51cf8256dffceb55b0610/setuptools-84.2.1-py3-none-any.whl",
+            "sha256": "ca140b45d5325a9478f880e351484f62fef15f336462e449ca0c03c873d589c2",
             "dest": "_vendor/build-backends"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/87/1b/9e33c09813d65e248f7f773119148a612516a4bea93e9c6f545f78455b7c/wheel-0.47.0-py3-none-any.whl",
-            "sha256": "212281cab4dff978f6cedd499cd893e1f620791ca6ff7107cf270781e587eced",
+            "url": "https://files.pythonhosted.org/packages/2e/29/69cfbb602cd91690c55d38ba9fe53e6a7e76a6fa647bf38f19c138d25449/wheel-0.48.0-py3-none-any.whl",
+            "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
             "dest": "_vendor/build-backends"
         }
     ]
