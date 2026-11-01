@@ -22,13 +22,6 @@
         },
         {
             "type": "file",
-            "url": "https://github.com/diybitcoinhardware/embit/archive/eb6104fd85d3becabba628756cd5e1b75619f3a1.tar.gz",
-            "dest-filename": "embit-eb6104fd85d3becabba628756cd5e1b75619f3a1.tar.gz",
-            "sha256": "29e900d49f98a482035ca4cbe615f75cff50b30029348e41a4ea5a4f7dcbef28",
-            "dest": "_vendor/git-packages"
-        },
-        {
-            "type": "file",
             "url": "https://github.com/bitcoin-core/HWI/archive/e63a0af2bf5c7c60b8cc71d99aba59068e8be0f0.tar.gz",
             "dest-filename": "hwi-e63a0af2bf5c7c60b8cc71d99aba59068e8be0f0.tar.gz",
             "sha256": "8c6b35225ad927237bb5703ff94143647b86004ead8ad392a611b7286bd6b8ae",

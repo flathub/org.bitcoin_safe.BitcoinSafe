@@ -15,8 +15,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/5314f0a350ee134131f7ee6eb96c4985036e3fae.tar.gz",
-            "sha256": "967f2aa156d66aa536df774c2b59da75cc3be37bdef8eb789e8ddaacd0cac741"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/ef358e28644d61204b6e2c8f3d271550ed04b647.tar.gz",
+            "sha256": "ea1418b46c0a1156a0a9b5c11bb51dc66b5b8dab482c99dd7214590265cca2bc"
         },
         {
             "type": "file",
@@ -142,6 +142,12 @@
             "type": "file",
             "url": "https://files.pythonhosted.org/packages/51/79/119091c98e2bf49e24ed9f3ae69f816d715d2904aefa6a2baa039a2ba0b0/ecdsa-0.19.2-py2.py3-none-any.whl",
             "sha256": "840f5dc5e375c68f36c1a7a5b9caad28f95daa65185c9253c0c08dd952bb7399",
+            "dest": "_vendor/runtime"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/83/88/b054b00ade6d2a41749e15976cdcec4b7ec4656ac1cb917ce3de395528d1/embit-0.8.0.tar.gz",
+            "sha256": "8bf4b10073c67400370ce523fb16f035fe759f6fdd987c579bdcc268d75ed770",
             "dest": "_vendor/runtime"
         },
         {
@@ -338,8 +344,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/d6/24/661cd140b9a871c068863802dab223b63f45250007119fc542ec424bc3a0/pyqt6_charts-6.12.0-cp310-abi3-manylinux_2_34_x86_64.whl",
-            "sha256": "606ffb16b55fbcb2d7a67a9b0072502c6b64728773d06e37dcb5fdc389115919",
+            "url": "https://files.pythonhosted.org/packages/41/48/5b217d1063d44b4d59dca2814e114ec47b7d5815f26b74c5146adbf1f6a8/pyqt6_charts-6.11.0-cp310-abi3-manylinux_2_34_x86_64.whl",
+            "sha256": "1d65c31b331fbdfbf3a4a015c37ba56bfe5694476b831b22d9c8c29d142312d0",
             "dest": "_vendor/runtime"
         },
         {
