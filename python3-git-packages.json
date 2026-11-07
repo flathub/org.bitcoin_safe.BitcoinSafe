@@ -22,6 +22,13 @@
         },
         {
             "type": "file",
+            "url": "https://github.com/andreasgriffin/btcpay-tools/archive/3191ae0c16ffb8c458d142a9160d221c706755b5.tar.gz",
+            "dest-filename": "btcpay_tools-3191ae0c16ffb8c458d142a9160d221c706755b5.tar.gz",
+            "sha256": "8c39f3a3021b3d47eb3fda56b76375d0d33069614bfdc9e180ab034e296db643",
+            "dest": "_vendor/git-packages"
+        },
+        {
+            "type": "file",
             "url": "https://github.com/bitcoin-core/HWI/archive/e63a0af2bf5c7c60b8cc71d99aba59068e8be0f0.tar.gz",
             "dest-filename": "hwi-e63a0af2bf5c7c60b8cc71d99aba59068e8be0f0.tar.gz",
             "sha256": "8c6b35225ad927237bb5703ff94143647b86004ead8ad392a611b7286bd6b8ae",
@@ -60,13 +67,6 @@
             "url": "https://github.com/andreasgriffin/bitcoin-nostr-chat/archive/ead733435ed0d9e56b9613284c4de7cf7141a84a.tar.gz",
             "dest-filename": "bitcoin_nostr_chat-ead733435ed0d9e56b9613284c4de7cf7141a84a.tar.gz",
             "sha256": "dd46c10c4f07fce48141b917f65ec2e233c9fd6364f7b5c9e47f6c2a16e38c25",
-            "dest": "_vendor/git-packages"
-        },
-        {
-            "type": "file",
-            "url": "https://github.com/andreasgriffin/btcpay-tools/archive/3bfc68f04a9bc36950cbc4ce12e1f6e3291e9752.tar.gz",
-            "dest-filename": "btcpay_tools-3bfc68f04a9bc36950cbc4ce12e1f6e3291e9752.tar.gz",
-            "sha256": "1f303573964b89e68e8657d7a19345f0d4c3d62ce06dbf2ed0d7c0cff7c8bce8",
             "dest": "_vendor/git-packages"
         }
     ]

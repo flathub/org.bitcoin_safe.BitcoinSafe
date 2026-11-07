@@ -15,8 +15,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/ef358e28644d61204b6e2c8f3d271550ed04b647.tar.gz",
-            "sha256": "ea1418b46c0a1156a0a9b5c11bb51dc66b5b8dab482c99dd7214590265cca2bc"
+            "url": "https://github.com/andreasgriffin/bitcoin-safe/archive/bc3f82163f303bc72feb5c5faa908af9fb60dd7a.tar.gz",
+            "sha256": "7088207735ea25b9d66d19a369156e8008ef159414598ece03fbe5ccdfbd170f"
         },
         {
             "type": "file",
@@ -110,8 +110,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl",
-            "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+            "url": "https://files.pythonhosted.org/packages/31/7d/164b7ffc8624fe9efb4221bf9af485d5c1e41b9ae118045d2b6dc5457d8b/click-8.5.1-py3-none-any.whl",
+            "sha256": "8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37",
             "dest": "_vendor/runtime"
         },
         {
@@ -278,8 +278,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/0b/2d/98af31fdcd7c95c7114e2eb7c2eb0fa55d2a012c37ba4eb3722b7272abcb/platformdirs-4.14.2-py3-none-any.whl",
-            "sha256": "dc1f93390f2a9265e44e5afc8667ec7faf737739604e39bc538fec889720c36b",
+            "url": "https://files.pythonhosted.org/packages/7c/ae/ecbbbfd0e4343a6a521d49b3c8656fb4643dee2a4f6eaf941cf3280391a8/platformdirs-4.14.5-py3-none-any.whl",
+            "sha256": "8e778c6fa421516f4d3369449f8df3b0e1b72c0e0005fe88e3ec772d0a14e750",
             "dest": "_vendor/runtime"
         },
         {
@@ -314,20 +314,20 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/18/88/33df6b1176b63aed427745696d88ed38f7877104cf0f6004ee9ad600f897/pycryptodome-4.2.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "76777686de3a354c41710727988c2284448d5db9bd82e5ddb9a9b6710d17d9df",
+            "url": "https://files.pythonhosted.org/packages/af/1b/b0f5f020bd43351932df9d16857330d3304715c4b1f7f783dc6e58cb7919/pycryptodome-4.3.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "96bf142ef25544a221a2b4a8f5d449cb07c1736be71b4ea057749318a2cd402c",
             "dest": "_vendor/runtime"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/97/01/c71a71258b58659c72504e5fd65b451f6e36e34dc931d0b237ded213c814/pydantic-2.14.2-py3-none-any.whl",
-            "sha256": "7efbf7507b937931cd32a5755acb00ea1cf5ccb1d4e8067a5850d5069e382118",
+            "url": "https://files.pythonhosted.org/packages/72/b8/b864503789ef5c58597d2a7b4adbee62c26440ab1e682581fc6838df8947/pydantic-2.14.3-py3-none-any.whl",
+            "sha256": "3f7b347782ab7e4cf4c798496ae3a82787d9f21ec12676a9c564355eeef8daa8",
             "dest": "_vendor/runtime"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/79/be/b559a1ceaff8b1d4581733d47d2ffa785635ac05716eae4c964466aac6e8/pydantic_core-2.50.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
-            "sha256": "31a1fb3ffbd1195b24490f671d12623dd4c9bfa56d6af0a299fa43b516134f5b",
+            "url": "https://files.pythonhosted.org/packages/2b/c0/1c8f2c8f1b03d3fe2fdd7962df8f5a744fe48c90b4c49615e4eb77d04141/pydantic_core-2.50.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "fb2bb5b557080da398b866408117d98fe9731a12334afd0cdff221b458cdc5dc",
             "dest": "_vendor/runtime"
         },
         {
@@ -350,8 +350,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/b1/7f/59c4fe4552a23b3474971f2eab73ac70ad02054a8af58fa70c078eefbb8c/pysequoia-0.1.35-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
-            "sha256": "deff1863bceb2f883a14bf3f8b3bf65a8943dd87ca18221311241332f5465f9c",
+            "url": "https://files.pythonhosted.org/packages/a5/45/52b21c63662f17a7acf6166bedad8bf03025a04a1827e2a45beef8d77891/pysequoia-0.1.36-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            "sha256": "188c0425ac0aeaa69dc2295300cbdf71840bbf78b8fc5198d6a8629bcdcf0779",
             "dest": "_vendor/runtime"
         },
         {
@@ -446,8 +446,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/67/81/4add07e5172b7ac40d8ed5ff580409a7801a4fe26d529bdd915401dabfbe/typing_inspection-0.4.4-py3-none-any.whl",
-            "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+            "url": "https://files.pythonhosted.org/packages/de/0c/ea2544850a7c135e15033a5c7a8e7211136184b7ae63e2239d557c2b3019/typing_inspection-0.4.5-py3-none-any.whl",
+            "sha256": "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39",
             "dest": "_vendor/runtime"
         },
         {
